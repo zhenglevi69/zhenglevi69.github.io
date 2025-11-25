@@ -1,20 +1,8 @@
-// script.js
-const searchInput = document.getElementById('search');
-searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    document.querySelectorAll('.song-card').forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const artist = card.querySelector('p').textContent.toLowerCase();
-        card.style.display = (title.includes(query) || artist.includes(query)) ? '' : 'none';
-    });
-});
-
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
 
     // 讀取所有歌曲資料夾
-    // 假設你有一個 songs.json 或手動列出資料夾
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
         "hirata_shiho/another_song",
@@ -41,7 +29,7 @@ async function loadSongs() {
         if (a.date && b.date) {
             return new Date(b.date) - new Date(a.date);
         }
-        return 0; // 沒有 date 就保留原順序
+        return 0;
     });
 
     // 最新翻譯（第一首）
@@ -64,6 +52,17 @@ async function loadSongs() {
             </div>
         </a>
     `).join("");
+
+    // 搜尋功能
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        document.querySelectorAll('.song-card').forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const artist = card.querySelector('p').textContent.toLowerCase();
+            card.style.display = (title.includes(query) || artist.includes(query)) ? '' : 'none';
+        });
+    });
 }
 
 loadSongs();
