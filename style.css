@@ -72,3 +72,65 @@ main h2 {
 .song-card div {
     color: #fff;
 }
+
+/* 單首歌頁面專用 */
+body.single-song {
+    background: #111;   /* 確保背景黑色 */
+}
+
+body.single-song #container {
+    width: 900px;       /* 中央固定寬度 */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+body.single-song .header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+body.single-song .header img {
+    width: 200px;       /* 固定封面尺寸 */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+body.single-song .lyrics {
+    margin-top: 40px;
+    text-align: center;
+}
+
+body.single-song .line {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+body.single-song .og {
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+body.single-song .zh {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+body.single-song .notes {
+    margin-top: 50px;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    text-align: center;
+}
+
