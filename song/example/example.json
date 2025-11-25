@@ -1,0 +1,10 @@
+{
+  "title": "Example Song",
+  "artist": "Example Artist",
+  "cover": "images/example_cover.jpg",
+  "lyrics": [
+    { "jp": "例句一", "zh": "翻譯一" },
+    { "jp": "例句二", "zh": "翻譯二" }
+  ],
+  "notes": "這是範例。"
+}
