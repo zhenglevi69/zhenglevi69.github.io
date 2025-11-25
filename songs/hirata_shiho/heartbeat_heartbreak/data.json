@@ -1,0 +1,14 @@
+{
+  "title": "Heartbeat, Heartbreak",
+  "artist": "平田志穗子",
+  "album": "Persona 4 Original Soundtrack", 
+  "cover": "cover.jpg",
+  "spotify": "https://open.spotify.com/embed/track/XXXXXX",
+  "lyrics": [
+    { "og": "Tell me why you did it  ", "zh": "做一朵無需修飾的花就好" },
+    { "og": "華やかでなくていい", "zh": "不用華麗也沒關係" },
+    { "og": "あなたの喜びの上に", "zh": "在你的喜悅之上" },
+    { "og": "実が生ればいい", "zh": "只要結出果實就好" }
+  ],
+  "notes": "這裡可以放你的個人注釋或心得。"
+}
