@@ -3,12 +3,26 @@
   "artist": "平田志穗子",
   "album": "Persona 4 Original Soundtrack", 
   "cover": "cover.jpg",
-  "spotify": "https://open.spotify.com/embed/track/XXXXXX",
+  "spotify": "https://open.spotify.com/embed/track/4ZJKi7HXFDG2emN6xIdbmV?utm_source=generator",
   "lyrics": [
-    { "og": "Tell me why you did it  ", "zh": "做一朵無需修飾的花就好" },
-    { "og": "華やかでなくていい", "zh": "不用華麗也沒關係" },
-    { "og": "あなたの喜びの上に", "zh": "在你的喜悅之上" },
-    { "og": "実が生ればいい", "zh": "只要結出果實就好" }
+    { "og": "Tell me why you did it  ", "zh": "告訴我為什麼你要這樣做" },
+    { "og": "Every dream falling apart", "zh": "所有夢想都支離破碎" },
+    { "og": "Tell me why you did it", "zh": "告訴我為什麼你要這樣做" },
+    { "og": "After the promise", "zh": "在許下承諾之後" },
+    { "og": "Still aching still aching", "zh": "心還在痛 還在痛" },
+    { "og": "Oh baby I need your love", "zh": "哦 寶貝 我需要你的愛" },
+    { "og": "Looking so different", "zh": "截然不同的" },
+    { "og": "Glaring street light", "zh": "炫目街燈" },
+    { "og": "Heartbeat Heartbeat", "zh": "心跳 心跳" },
+    { "og": "It keeps on pounding", "zh": "它不停跳動" },
+    { "og": "Heartbreak Heartbreak", "zh": "心碎 心碎" },
+    { "og": "You tell me goodbye", "zh": "你向我道別" },
+    { "og": "Heartbeat Heartbeat", "zh": "心跳 心跳" },
+    { "og": "It keeps on pounding", "zh": "它不停跳動" },
+    { "og": "Heartbreak Heartbreak", "zh": "心碎 心碎" },
+    { "og": "You tell me goodbye", "zh": "你向我道別" },
+    { "og": " ", "zh": " " },
+    
   ],
-  "notes": "這裡可以放你的個人注釋或心得。"
+  "notes": "測試翻譯"
 }
