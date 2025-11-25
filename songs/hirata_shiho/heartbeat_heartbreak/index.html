@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Song Translation</title>
+  <style>
+    body { margin:0; padding:20px; background:#111; color:#fff; font-family:Arial; }
+    .header { display:flex; gap:20px; align-items:flex-start; }
+    .header img { width:200px; height:200px; object-fit:cover; border-radius:10px; }
+    .lyrics { margin-top:40px; }
+    .line { margin-bottom:20px; padding-bottom:15px; border-bottom:1px solid #333; }
+    .jp { font-size:1.1rem; color:#bbb; }
+    .zh { font-size:1.2rem; margin-top:5px; }
+    .notes { margin-top:50px; padding:20px; background:#222; border-radius:10px; white-space:pre-wrap; }
+  </style>
+</head>
+<body>
+<div id="content">Loading...</div>
+<script>
+async function loadData() {
+  const response = await fetch("data.json");
+  const data = await response.json();
+  document.title = `${data.title} - ${data.artist}`;
+  const html = `
+    <div class="header">
+      <img src="${data.cover}">
+      <div>
+        <h1>${data.title}</h1>
+        <h3>${data.artist}</h3>
+        ${data.spotify ? `<iframe src="${data.spotify}" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>` : ""}
+      </div>
+    </div>
+    <div class="lyrics">
+      ${data.lyrics.map(line => `
+        <div class="line">
+          <div class="jp">${line.jp}</div>
+          <div class="zh">${line.zh}</div>
+        </div>
+      `).join("")}
+    </div>
+    <div class="notes">${data.notes || ""}</div>
+  `;
+  document.getElementById("content").innerHTML = html;
+}
+loadData();
+</script>
+</body>
+</html>
