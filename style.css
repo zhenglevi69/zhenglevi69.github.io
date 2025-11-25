@@ -110,7 +110,7 @@ body.single-song .lyrics {
 }
 
 body.single-song .line {
-    display: inline-block;
+    display: block;
     text-align: center;
     margin-bottom: 20px;
     padding-bottom: 15px;
