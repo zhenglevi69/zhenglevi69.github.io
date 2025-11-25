@@ -1,4 +1,13 @@
 // script.js
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    document.querySelectorAll('.song-card').forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const artist = card.querySelector('p').textContent.toLowerCase();
+        card.style.display = (title.includes(query) || artist.includes(query)) ? '' : 'none';
+    });
+});
 
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
