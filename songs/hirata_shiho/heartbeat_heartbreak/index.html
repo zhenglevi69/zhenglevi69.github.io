@@ -5,18 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Song Translation</title>
   <style>
-    body { margin:0; padding:20px; background:#111; color:#fff; font-family:Arial; }
-    .header { display:flex; gap:20px; align-items:flex-start; }
-    .header img { width:200px; height:200px; object-fit:cover; border-radius:10px; }
-    .lyrics { margin-top:40px; }
-    .line { margin-bottom:20px; padding-bottom:15px; border-bottom:1px solid #333; }
-    .og { font-size:1.1rem; color:#bbb; }
-    .zh { font-size:1.2rem; margin-top:5px; }
-    .notes { margin-top:50px; padding:20px; background:#222; border-radius:10px; white-space:pre-wrap; }
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial;
+      display: flex;
+      justify-content: center; /* 中央置中 */
+    }
+
+    #container {
+      width: 900px;           /* 中央固定寬度 */
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;       /* 可垂直滾動 */
+    }
+
+    .header {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      justify-content: center; /* 水平置中 */
+    }
+
+    .header img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .lyrics {
+      margin-top: 40px;
+    }
+
+    .line {
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #333;
+    }
+
+    .og {
+      font-size: 1.1rem;
+      color: #bbb;
+    }
+
+    .zh {
+      font-size: 1.2rem;
+      margin-top: 5px;
+    }
+
+    .notes {
+      margin-top: 50px;
+      padding: 20px;
+      background: #222;
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
   </style>
 </head>
 <body>
-<div id="content">Loading...</div>
+<div id="container">
+  <div id="content">Loading...</div>
+</div>
 <script>
 async function loadData() {
   const response = await fetch("data.json");
