@@ -74,26 +74,32 @@ main h2 {
 }
 
 /* 單首歌頁面專用 */
+
 body.single-song {
-    background: #111;   /* 確保背景黑色 */
+    display: block;      /* 取消首頁 flex 排版 */
+    background: #111 !important;
 }
 
 body.single-song #container {
-    width: 900px;       /* 中央固定寬度 */
+    width: 900px;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    background: #111 !important;
 }
 
-body.single-song .header {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
+body.single-song .header img {
+    width: 200px !important;
+    height: 200px !important;
 }
+
+
+body.single-song .header img {
+    width: 200px !important;
+    height: 200px !important;
+}
+
 
 body.single-song .header img {
     width: 200px;       /* 固定封面尺寸 */
