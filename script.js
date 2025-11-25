@@ -1,46 +1,60 @@
+// script.js
+
 async function loadSongs() {
-    const response = await fetch("songs.json");
-    const songs = await response.json();
+    const latestDiv = document.getElementById("latest");
+    const listDiv = document.getElementById("song-list");
 
-    // 最新翻譯：假設取最後 3 首
-    const latest = songs.slice(-3).reverse();
-    const latestContainer = document.getElementById("latest");
-    latestContainer.innerHTML = latest.map(song => `
-        <div class="song-card">
-            <a href="${song.folder}/">
-                <img src="${song.cover}" alt="${song.title}">
-                <div>
-                    <h3>${song.title}</h3>
-                    <p>${song.artist}</p>
-                </div>
-            </a>
-        </div>
-    `).join("");
+    // 讀取所有歌曲資料夾
+    // 假設你有一個 songs.json 或手動列出資料夾
+    const songFolders = [
+        "hirata_shiho/heartbeat_heartbreak",
+        "hirata_shiho/another_song",
+        // 依序列出其他歌曲資料夾
+    ];
 
-    // 所有翻譯
-    const allContainer = document.getElementById("song-list");
-    allContainer.innerHTML = songs.map(song => `
-        <div class="song-card">
-            <a href="${song.folder}/">
-                <img src="${song.cover}" alt="${song.title}">
-                <div>
-                    <h3>${song.title}</h3>
-                    <p>${song.artist}</p>
-                </div>
-            </a>
+    const songs = [];
+
+    for (const folder of songFolders) {
+        try {
+            const res = await fetch(`songs/${folder}/data.json`);
+            const data = await res.json();
+            data.folder = folder; // 保存資料夾路徑給連結用
+            songs.push(data);
+        } catch (err) {
+            console.error(`Failed to load ${folder}`, err);
+        }
+    }
+
+    if (!songs.length) return;
+
+    // 依時間排序，如果有 date 欄位
+    songs.sort((a, b) => {
+        if (a.date && b.date) {
+            return new Date(b.date) - new Date(a.date);
+        }
+        return 0; // 沒有 date 就保留原順序
+    });
+
+    // 最新翻譯（第一首）
+    const latest = songs[0];
+    latestDiv.innerHTML = `
+        <img src="songs/${latest.folder}/${latest.cover}" alt="${latest.title}">
+        <div>
+            <h3>${latest.title}</h3>
+            <p>${latest.artist}</p>
         </div>
+    `;
+
+    // 所有歌曲列表
+    listDiv.innerHTML = songs.map(song => `
+        <a class="song-card" href="songs/${song.folder}/index.html">
+            <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
+            <div>
+                <h3>${song.title}</h3>
+                <p>${song.artist}</p>
+            </div>
+        </a>
     `).join("");
 }
-
-// 搜尋功能
-document.getElementById("search").addEventListener("input", function() {
-    const query = this.value.toLowerCase();
-    const songCards = document.querySelectorAll("#song-list .song-card");
-    songCards.forEach(card => {
-        const title = card.querySelector("h3").textContent.toLowerCase();
-        const artist = card.querySelector("p").textContent.toLowerCase();
-        card.style.display = (title.includes(query) || artist.includes(query)) ? "flex" : "none";
-    });
-});
 
 loadSongs();
