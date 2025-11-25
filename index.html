@@ -8,17 +8,27 @@
 <body>
 
 <div id="container">
+
+    <!-- 搜尋欄 -->
     <header>
         <input id="search" type="text" placeholder="搜尋歌曲或歌手…">
     </header>
 
-    <main>
-        <h2>最新翻譯</h2>
-        <div id="latest"></div>
+    <!-- 公告區：最新翻譯 -->
+    <div id="latest-banner" class="banner">
+        <img src="songs/example/example_cover.jpg" alt="封面">
+        <div class="info">
+            <h3>Example Song</h3>
+            <p>Example Artist</p>
+        </div>
+    </div>
 
+    <!-- 歌曲列表 -->
+    <main>
         <h2>所有翻譯</h2>
         <div id="song-list"></div>
     </main>
+
 </div>
 
 <script src="script.js"></script>
