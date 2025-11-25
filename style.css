@@ -1,4 +1,6 @@
-/* 首頁覆蓋樣式 */
+/* ================================
+   首頁覆蓋樣式
+   ================================ */
 body:not(.single-song) {
     display: flex;
     justify-content: center;
@@ -17,7 +19,7 @@ body:not(.single-song) #container {
 }
 
 /* 最新翻譯公告 */
-#latest {
+#latest-banner {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -31,14 +33,14 @@ body:not(.single-song) #container {
     z-index: 10;
 }
 
-#latest img {
+#latest-banner img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-#latest div {
+#latest-banner .info {
     text-align: left;
     color: #fff;
 }
@@ -59,7 +61,7 @@ header {
     margin: 10px auto;
     border-radius: 8px;
     border: 2px solid #333;
-    width: 100%;       /* 長條形 */
+    width: 100%;
     max-width: 800px;
     transition: transform 0.2s;
     text-decoration: none;
@@ -82,7 +84,9 @@ header {
     transform: scale(1.03);
 }
 
-/* 單首歌頁面專用 */
+/* ================================
+   單首歌頁面專用
+   ================================ */
 body.single-song {
     display: block;      /* 取消首頁 flex 排版 */
     background: #111 !important;
@@ -145,70 +149,3 @@ body.single-song .notes {
     white-space: pre-wrap;
     text-align: center;
 }
-
-
-
-/* 單首歌頁面專用 */
-body.single-song {
-    display: block;      /* 取消首頁 flex 排版 */
-    background: #111 !important;
-}
-
-body.single-song #container {
-    width: 900px;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    background: #111 !important;
-    margin: 0 auto;
-}
-
-body.single-song .header {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-body.single-song .header img {
-    width: 200px !important;
-    height: 200px !important;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-body.single-song .lyrics {
-    margin-top: 40px;
-    text-align: center;
-}
-
-body.single-song .line {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-}
-
-body.single-song .og {
-    font-size: 1.1rem;
-    color: #bbb;
-}
-
-body.single-song .zh {
-    font-size: 1.2rem;
-    margin-top: 5px;
-}
-
-body.single-song .notes {
-    margin-top: 50px;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-    white-space: pre-wrap;
-    text-align: center;
-}
-
