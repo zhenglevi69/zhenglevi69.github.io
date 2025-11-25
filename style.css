@@ -86,6 +86,7 @@ body.single-song #container {
     box-sizing: border-box;
     overflow-y: auto;
     background: #111 !important;
+    margin: 0 auto;
 }
 
 body.single-song .header {
