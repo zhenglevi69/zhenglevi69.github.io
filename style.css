@@ -1,56 +1,67 @@
+/* 全頁黑背景 */
 body {
-    background: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
+  margin: 0;
+  background: #111;
+  display: flex;
+  justify-content: center; /* 內容置中 */
 }
 
+/* 中央可滑動區域 */
+#container {
+  width: 900px;      /* 中央固定寬度，可根據需求調整 */
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;  /* 允許垂直滾動 */
+}
+
+/* header 居中 */
 header {
-    background: #222;
-    padding: 20px;
-    text-align: center;
+  background: #222;
+  padding: 20px;
+  text-align: center;
 }
 
+/* 搜尋欄置中 */
 #search {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
 }
 
+/* main 文字置中 */
 main {
-    padding: 20px;
+  padding: 20px 0;
+  text-align: center;
 }
 
-main h2 {
-    margin-top: 40px;
-    margin-bottom: 15px;
-}
-
+/* 卡片置中 */
 .song-card {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background: #1c1c1c;
-    padding: 15px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    transition: transform 0.2s;
+  display: inline-flex;  /* inline-flex 可以置中 */
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #1c1c1c;
+  padding: 15px;
+  margin: 12px auto;     /* 自動左右置中 */
+  border-radius: 8px;
+  transition: transform 0.2s;
+  width: 250px;          /* 卡片寬度 */
 }
 
 .song-card:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .song-card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .song-card div {
-    color: #fff;
+  color: #fff;
 }
-
