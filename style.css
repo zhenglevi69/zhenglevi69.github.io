@@ -23,9 +23,34 @@ main {
     padding: 20px;
 }
 
-.song-item {
+main h2 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.song-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     background: #1c1c1c;
     padding: 15px;
     margin-bottom: 12px;
     border-radius: 8px;
+    transition: transform 0.2s;
 }
+
+.song-card:hover {
+    transform: scale(1.03);
+}
+
+.song-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.song-card div {
+    color: #fff;
+}
+
