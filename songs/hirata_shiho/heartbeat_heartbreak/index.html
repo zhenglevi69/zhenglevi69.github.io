@@ -10,7 +10,7 @@
     .header img { width:200px; height:200px; object-fit:cover; border-radius:10px; }
     .lyrics { margin-top:40px; }
     .line { margin-bottom:20px; padding-bottom:15px; border-bottom:1px solid #333; }
-    .jp { font-size:1.1rem; color:#bbb; }
+    .og { font-size:1.1rem; color:#bbb; }
     .zh { font-size:1.2rem; margin-top:5px; }
     .notes { margin-top:50px; padding:20px; background:#222; border-radius:10px; white-space:pre-wrap; }
   </style>
@@ -34,7 +34,7 @@ async function loadData() {
     <div class="lyrics">
       ${data.lyrics.map(line => `
         <div class="line">
-          <div class="jp">${line.jp}</div>
+          <div class="og">${line.og}</div>
           <div class="zh">${line.zh}</div>
         </div>
       `).join("")}
