@@ -61,7 +61,7 @@ async function loadSongs() {
     }
 
     let scrollX = 0;           // 背景 X 位置
-    let speed = 0.2;           // 滾動速度 px/frame
+    let speed = 0.3;           // 滾動速度 px/frame
     let visible = false;       // 是否顯示背景
     let requestId;
 
