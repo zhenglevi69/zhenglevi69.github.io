@@ -5,7 +5,7 @@ async function loadSongs() {
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
         "hirata_shiho/another_song",
-        // 其他歌曲資料夾
+        // 其他歌曲依序列出
     ];
 
     const songs = [];
@@ -14,7 +14,7 @@ async function loadSongs() {
         try {
             const res = await fetch(`songs/${folder}/data.json`);
             const data = await res.json();
-            data.folder = folder;
+            data.folder = folder; // 保存資料夾路徑
             songs.push(data);
         } catch (err) {
             console.error(`Failed to load ${folder}`, err);
@@ -23,8 +23,13 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    // 按日期排序
-    songs.sort((a, b) => (a.date && b.date) ? new Date(b.date) - new Date(a.date) : 0);
+    // 依時間排序
+    songs.sort((a, b) => {
+        if (a.date && b.date) {
+            return new Date(b.date) - new Date(a.date);
+        }
+        return 0;
+    });
 
     // 最新翻譯公告
     const latest = songs[0];
@@ -39,7 +44,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 所有歌曲列表
+    // 歌曲列表
     listDiv.innerHTML = songs.map(song => `
         <div class="song-wrapper" style="--bg: url('songs/${song.folder}/${song.cover}')">
             <a class="song-card" href="songs/${song.folder}/index.html">
