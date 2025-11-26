@@ -1,49 +1,46 @@
-/* ================================
-   首頁覆蓋樣式
-   ================================ */
-body:not(.single-song) {
+/* 全頁背景 & 中央框 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    background: #111;
+    color: #fff;
     display: flex;
     justify-content: center;
-    background: #111;
 }
 
-body:not(.single-song) #container {
+/* 滾動背景（框外） */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;           /* 兩倍寬度方便無縫循環 */
+    height: 100%;
+    background-image: var(--bg-all, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
+    background-size: cover;
+    background-repeat: repeat-x;
+    z-index: -1;
+    filter: brightness(0.2);
+    animation: scroll-bg 30s linear infinite;
+}
+
+@keyframes scroll-bg {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* 中央內容框 */
+#container {
     width: 900px;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
     background: rgba(0,0,0,0.7);
-}
-
-/* 最新翻譯公告 */
-#latest {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #1c1c1c;
-    padding: 15px 20px;
     border: 2px solid #333;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    position: sticky;
-    top: 20px;
-    z-index: 10;
-    text-decoration: none;
-    color: #fff;
-    cursor: pointer;
-}
-
-#latest img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-#latest div {
-    text-align: left;
-    color: #fff;
+    border-radius: 12px;
 }
 
 /* 搜尋欄置中 */
@@ -52,47 +49,42 @@ header {
     margin-bottom: 20px;
 }
 
-/* ================================
-   歌曲列表 + 背景卷軸效果
-   ================================ */
-.song-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 10px auto;
-    overflow: visible; /* 背景可以延伸出按鈕框 */
+#search {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
 }
 
-/* 背景卷軸 */
-.song-wrapper::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-image: var(--bg);
-    background-size: cover;
-    background-repeat: repeat-x;
-    filter: brightness(0.35);
-    opacity: 0; /* 預設隱藏 */
-    z-index: 0;
-    transition: opacity 0.3s ease;
+/* 公告（最新翻譯） */
+#latest {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #1c1c1c;
+    padding: 10px 15px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    cursor: pointer;
 }
 
-/* hover 時顯示卷軸並滑動 */
-.song-wrapper:hover::before {
-    opacity: 0.4;
-    animation: scroll-bg 18s linear infinite;
+#latest img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
-/* 背景無限水平移動 */
-@keyframes scroll-bg {
-    0% { background-position: 0 center; }
-    100% { background-position: -100% center; }
+#latest div {
+    text-align: left;
 }
 
-/* 前景按鈕 */
+/* 歌曲卡片 */
 .song-card {
     position: relative;
     z-index: 1;
@@ -104,35 +96,29 @@ header {
     border: 2px solid #fff;
     border-radius: 12px;
     text-decoration: none;
-    color: white;
+    color: #fff;
     backdrop-filter: blur(4px);
     transition: transform 0.2s, background 0.2s;
 }
 
-/* hover 效果：前景略變亮 + 放大 */
-.song-wrapper:hover .song-card {
-    transform: scale(1.02);
-    background: rgba(255,255,255,0.15);
-}
-
-/* 前景封面圖片 */
 .song-card img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-/* 前景文字 */
 .song-card div {
     text-align: left;
-    z-index: 2;
-    color: #fff;
 }
 
-/* ================================
-   單首歌頁面專用
-   ================================ */
+/* hover效果 */
+.song-card:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.02);
+}
+
+/* 單首歌頁面保持不變 */
 body.single-song {
     display: block;
     background: #111 !important;
@@ -196,7 +182,6 @@ body.single-song .notes {
     text-align: center;
 }
 
-body.single-song,
-body.single-song * {
+body.single-song, body.single-song * {
     color: #fff !important;
 }
