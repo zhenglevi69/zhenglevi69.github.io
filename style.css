@@ -1,35 +1,21 @@
-/* 全頁背景（框外，初始隱藏） */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    position: relative;
-    overflow-x: hidden;
-    background: #111;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-}
-
-/* 背景層，初始透明 */
-body::before,
-body::after {
-    content: "";
+/* 全頁背景容器（hover 顯示、卷軸） */
+#bg-layer {
     position: fixed;
     top: 0;
     left: 0;
     width: 200%;
     height: 100%;
-    background-size: contain;  /* 確保整張圖完全顯示 */
-    background-position: center center;
+    background-size: contain;      /* 保持整張圖完整顯示 */
     background-repeat: repeat-x;
+    background-position: center center;
     z-index: -1;
     filter: brightness(0.2);
-    animation: scroll-bg 30s linear infinite;
-    transition: opacity 0.6s ease; /* 淡入淡出 */
-    opacity: 0; /* 初始隱藏 */
+    pointer-events: none;          /* 不干擾滑鼠事件 */
+    opacity: 0;                    /* 初始隱藏 */
+    transition: opacity 0.6s ease;
 }
 
-/* 滾動動畫 */
+/* 滾動動畫（hover 啟用 JS 控制） */
 @keyframes scroll-bg {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
@@ -47,7 +33,21 @@ body::after {
     border-radius: 12px;
 }
 
-/* 公告 */
+/* 搜尋欄置中 */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+/* 公告（最新翻譯） */
 #latest {
     display: flex;
     align-items: center;
