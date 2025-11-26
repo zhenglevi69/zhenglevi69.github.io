@@ -21,14 +21,12 @@ body:not(.single-song) #container {
     gap: 15px;
     background: #1c1c1c;
     padding: 15px 20px;
-    border: 2px solid #333;
+    border: 2px solid #fff;
     border-radius: 8px;
     margin-bottom: 20px;
     position: sticky;
     top: 20px;
     z-index: 10;
-    text-decoration: none;
-    color: #fff;
     cursor: pointer;
 }
 
@@ -54,8 +52,7 @@ header {
 .song-wrapper {
     position: relative;
     width: 100%;
-    height: 120px;   /* ★ 背景固定高度，避免抖動 */
-    overflow: hidden;
+    overflow: visible; /* 讓背景能外溢 */
     margin-bottom: 20px;
 }
 
@@ -64,42 +61,65 @@ header {
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
-    width: 200%;             
+    left: -50%;   /* 往左延伸一半 */
+    width: 200%;  /* 兩倍寬度做無縫循環 */
     height: 100%;
     background-image: var(--bg);
     background-size: cover;
     background-repeat: repeat-x;
     filter: brightness(0.4);
+    z-index: 0;
     animation: scroll-bg 18s linear infinite;
-    z-index: 1;
 }
 
-/* 前景卡片 */
+/* 無限橫向移動 */
+@keyframes scroll-bg {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* song-card：前景按鈕 */
 .song-card {
-    position: absolute;
-    inset: 0;                  /* ★ 讓卡片完美置中重疊 */
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px;
-    background: rgba(0,0,0,0.45);
+    padding: 14px 20px;
+    background: rgba(0,0,0,0.5);
     border: 2px solid #fff;
     border-radius: 12px;
     text-decoration: none;
-    color: white;
+    color: #fff;
     backdrop-filter: blur(4px);
-    z-index: 2;
-    box-sizing: border-box;
+    transition: transform 0.2s, background 0.2s;
 }
 
+/* hover：亮度 + 輕微放大 */
+.song-card:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.02);
+}
 
+/* 卡片內部圖片 */
+.song-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* 文字保持在卡片上方 */
+.song-card div {
+    text-align: left;
+    z-index: 2;
+}
 
 /* ================================
    單首歌頁面專用
    ================================ */
 body.single-song {
-    display: block;      /* 取消首頁 flex 排版 */
+    display: block;
     background: #111 !important;
 }
 
@@ -161,7 +181,6 @@ body.single-song .notes {
     text-align: center;
 }
 
-/* 單首歌頁面的全白字體覆蓋 */
 body.single-song,
 body.single-song * {
     color: #fff !important;
