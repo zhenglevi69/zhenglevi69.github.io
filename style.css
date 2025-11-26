@@ -48,45 +48,43 @@ header {
     margin-bottom: 20px;
 }
 
-/* song-wrapper：外層背景容器 */
+/* song-wrapper：外掛背景圖容器 */
 .song-wrapper {
     position: relative;
     width: 100%;
+    overflow: visible;
     margin-bottom: 20px;
-    padding: 20px 0; /* 給背景和卡片間距 */
 }
 
-/* 背景卷軸：比卡片大，位於按鈕下方 */
+/* 背景卷軸（高度 100%，寬度自動，不蓋按鈕） */
 .song-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -20px;        /* 擴展到左右 */
-    width: calc(100% + 40px);
+    left: 0;
+    width: 200%;             /* 兩倍寬度做無縫循環 */
     height: 100%;
     background-image: var(--bg);
-    background-size: cover;
+    background-size: auto 100%;
     background-repeat: repeat-x;
-    background-position: 0 center;
     filter: brightness(0.3);
+    opacity: 0;
+    transition: opacity 0.4s ease;
     z-index: 0;
-    opacity: 0;          /* 平時隱藏 */
-    transition: opacity 0.5s ease;
 }
 
-/* Hover 時顯示卷軸 */
+/* hover 時顯示卷軸 */
 .song-wrapper:hover::before {
-    opacity: 1;
+    opacity: 0.2;
     animation: scroll-bg 18s linear infinite;
 }
 
-/* 卷軸動畫 */
 @keyframes scroll-bg {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
 
-/* 卡片置於背景上 */
+/* song-card：前景按鈕 */
 .song-card {
     position: relative;
     z-index: 2;
@@ -94,19 +92,20 @@ header {
     align-items: center;
     gap: 14px;
     padding: 14px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.5);
     border: 2px solid #fff;
     border-radius: 12px;
     text-decoration: none;
     color: white;
     backdrop-filter: blur(4px);
-    margin: 0 20px; /* 留出背景外溢空間 */
-    transition: transform 0.2s, background 0.2s;
 }
 
-.song-card:hover {
-    transform: scale(1.02);
-    background: rgba(255,255,255,0.15);
+/* 按鈕封面固定大小 */
+.song-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 
