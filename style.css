@@ -183,3 +183,25 @@ body.single-song .notes {
 body.single-song, body.single-song * {
     color: #fff !important;
 }
+
+/* 右上角固定按鈕 */
+#top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20; /* 確保在 container 上方 */
+}
+
+#about-btn img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#about-btn img:hover {
+    transform: scale(1.1);
+}
+
