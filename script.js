@@ -22,8 +22,13 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    songs.sort((a, b) => (a.date && b.date) ? new Date(b.date) - new Date(a.date) : 0);
+    // 排序
+    songs.sort((a, b) => {
+        if (a.date && b.date) return new Date(b.date) - new Date(a.date);
+        return 0;
+    });
 
+    // 最新翻譯
     const latest = songs[0];
     latestDiv.innerHTML = `
         <img src="songs/${latest.folder}/${latest.cover}" alt="${latest.title}">
@@ -36,6 +41,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
+    // 卡片
     listDiv.innerHTML = songs.map(song => `
         <a class="song-card" href="songs/${song.folder}/index.html" data-cover="songs/${song.folder}/${song.cover}">
             <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
@@ -54,23 +60,33 @@ async function loadSongs() {
         document.body.appendChild(bgLayer);
     }
 
-    const cards = document.querySelectorAll('.song-card');
+    let scrollX = 0;           // 背景 X 位置
+    let speed = 0.2;           // 滾動速度 px/frame
+    let visible = false;       // 是否顯示背景
+    let requestId;
 
+    function animate() {
+        scrollX -= speed;
+        if (scrollX <= -window.innerWidth) scrollX = 0; // 循環
+        bgLayer.style.transform = `translateX(${scrollX}px)`;
+        requestId = requestAnimationFrame(animate);
+    }
+
+    animate(); // 開始動畫
+
+    const cards = document.querySelectorAll('.song-card');
     cards.forEach(card => {
         const cover = card.getAttribute('data-cover');
 
         card.addEventListener('mouseenter', () => {
             bgLayer.style.backgroundImage = `url('${cover}')`;
             bgLayer.style.opacity = '1';
-            bgLayer.style.backgroundSize = 'contain';
-            bgLayer.style.animation = 'scroll-bg 30s linear infinite';
+            visible = true;
         });
 
         card.addEventListener('mouseleave', () => {
-            // 邊滾邊淡出
-            bgLayer.style.transition = 'opacity 0.6s ease';
             bgLayer.style.opacity = '0';
-            // 不停止動畫，保持滾動
+            visible = false;
         });
     });
 }
