@@ -33,8 +33,8 @@ body {
 /* 中央內容框 */
 #container {
     width: 1024px;          /* 配合背景比例 */
-    max-height: 800px;
-    min-height: 800px;      /* 固定高度，確保背景裁切一致 */
+    max-height: 1079px;
+    min-height: 1079px;      /* 固定高度，確保背景裁切一致 */
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;       /* 內容超出時可滾動 */
