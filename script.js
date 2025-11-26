@@ -22,10 +22,8 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    songs.sort((a,b) => {
-        if (a.date && b.date) return new Date(b.date) - new Date(a.date);
-        return 0;
-    });
+    // 按日期排序
+    songs.sort((a,b) => a.date && b.date ? new Date(b.date)-new Date(a.date) : 0);
 
     // 最新翻譯公告
     const latest = songs[0];
@@ -40,7 +38,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 歌曲卡片
+    // 生成卡片
     listDiv.innerHTML = songs.map(song => `
         <a class="song-card" href="songs/${song.folder}/index.html" data-cover="songs/${song.folder}/${song.cover}">
             <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
@@ -51,35 +49,39 @@ async function loadSongs() {
         </a>
     `).join("");
 
-    // 初始背景
+    // 設定初始背景
     let currentBG = 1;
     document.body.style.setProperty('--bg-all-1', `url('songs/${songs[0].folder}/${songs[0].cover}')`);
     document.body.style.setProperty('--bg-all-2', `url('songs/${songs[0].folder}/${songs[0].cover}')`);
+    document.body.style.setProperty('--fade-bg-1', 1);
+    document.body.style.setProperty('--fade-bg-2', 0);
 
     const cards = document.querySelectorAll('.song-card');
     cards.forEach(card => {
         const cover = card.getAttribute('data-cover');
+
         card.addEventListener('mouseenter', () => {
-            // 切換另一個背景圖
             const nextBG = currentBG === 1 ? '--bg-all-2' : '--bg-all-1';
+            const fade1 = currentBG === 1 ? 0 : 1;
+            const fade2 = currentBG === 1 ? 1 : 0;
+
             document.body.style.setProperty(nextBG, `url('${cover}')`);
-            // 淡入淡出
-            document.body.style.setProperty('--fade-bg-1', currentBG === 1 ? 1 : 0);
-            document.body.style.setProperty('--fade-bg-2', currentBG === 2 ? 1 : 0);
-            // 交換 current
+            document.body.style.setProperty('--fade-bg-1', fade1);
+            document.body.style.setProperty('--fade-bg-2', fade2);
+
             currentBG = currentBG === 1 ? 2 : 1;
-            // 控制透明度
-            if (currentBG === 1) {
-                document.body.style.setProperty('opacity', ''); // 保持 body 透明度不干擾
-            }
         });
+
         card.addEventListener('mouseleave', () => {
-            // 回到第一首歌封面
             const firstCover = `url('songs/${songs[0].folder}/${songs[0].cover}')`;
             if (currentBG === 1) {
                 document.body.style.setProperty('--bg-all-2', firstCover);
+                document.body.style.setProperty('--fade-bg-1', 1);
+                document.body.style.setProperty('--fade-bg-2', 0);
             } else {
                 document.body.style.setProperty('--bg-all-1', firstCover);
+                document.body.style.setProperty('--fade-bg-1', 0);
+                document.body.style.setProperty('--fade-bg-2', 1);
             }
         });
     });
