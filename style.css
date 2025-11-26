@@ -48,72 +48,67 @@ header {
     margin-bottom: 20px;
 }
 
-/* song-wrapper：外掛背景圖容器 */
+/* song-wrapper：外層背景容器 */
 .song-wrapper {
     position: relative;
     width: 100%;
-    overflow: visible; /* 讓背景能外溢 */
     margin-bottom: 20px;
+    padding: 20px 0; /* 給背景和卡片間距 */
 }
 
-/* 背景卷軸 */
+/* 背景卷軸：比卡片大，位於按鈕下方 */
 .song-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -50%;   /* 往左延伸一半 */
-    width: 200%;  /* 兩倍寬度做無縫循環 */
+    left: -20px;        /* 擴展到左右 */
+    width: calc(100% + 40px);
     height: 100%;
     background-image: var(--bg);
     background-size: cover;
     background-repeat: repeat-x;
-    filter: brightness(0.4);
+    background-position: 0 center;
+    filter: brightness(0.3);
     z-index: 0;
+    opacity: 0;          /* 平時隱藏 */
+    transition: opacity 0.5s ease;
+}
+
+/* Hover 時顯示卷軸 */
+.song-wrapper:hover::before {
+    opacity: 1;
     animation: scroll-bg 18s linear infinite;
 }
 
-/* 無限橫向移動 */
+/* 卷軸動畫 */
 @keyframes scroll-bg {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
 
-/* song-card：前景按鈕 */
+/* 卡片置於背景上 */
 .song-card {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 14px 20px;
-    background: rgba(0,0,0,0.5);
+    padding: 14px;
+    background: rgba(0,0,0,0.6);
     border: 2px solid #fff;
     border-radius: 12px;
     text-decoration: none;
-    color: #fff;
+    color: white;
     backdrop-filter: blur(4px);
+    margin: 0 20px; /* 留出背景外溢空間 */
     transition: transform 0.2s, background 0.2s;
 }
 
-/* hover：亮度 + 輕微放大 */
 .song-card:hover {
-    background: rgba(255,255,255,0.15);
     transform: scale(1.02);
+    background: rgba(255,255,255,0.15);
 }
 
-/* 卡片內部圖片 */
-.song-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-/* 文字保持在卡片上方 */
-.song-card div {
-    text-align: left;
-    z-index: 2;
-}
 
 /* ================================
    單首歌頁面專用
