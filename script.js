@@ -1,6 +1,7 @@
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
+    const searchInput = document.getElementById("search"); // 搜尋欄
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
@@ -66,9 +67,11 @@ async function loadSongs() {
     let requestId;
 
     function animate() {
-        scrollX -= speed;
-        if (scrollX <= -window.innerWidth) scrollX = 0; // 循環
-        bgLayer.style.transform = `translateX(${scrollX}px)`;
+        if (visible) {
+            scrollX -= speed;
+            if (scrollX <= -window.innerWidth) scrollX = 0; // 循環
+            bgLayer.style.transform = `translateX(${scrollX}px)`;
+        }
         requestId = requestAnimationFrame(animate);
     }
 
@@ -87,6 +90,17 @@ async function loadSongs() {
         card.addEventListener('mouseleave', () => {
             bgLayer.style.opacity = '0';
             visible = false;
+        });
+    });
+
+    // 搜尋功能
+    searchInput.addEventListener('input', () => {
+        const term = searchInput.value.toLowerCase();
+        const cards = document.querySelectorAll('.song-card');
+        cards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const artist = card.querySelector('p').textContent.toLowerCase();
+            card.style.display = title.includes(term) || artist.includes(term) ? 'flex' : 'none';
         });
     });
 }
