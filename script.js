@@ -49,40 +49,24 @@ async function loadSongs() {
         </a>
     `).join("");
 
-    // 設定初始背景
-    let currentBG = 1;
-    document.body.style.setProperty('--bg-all-1', `url('songs/${songs[0].folder}/${songs[0].cover}')`);
-    document.body.style.setProperty('--bg-all-2', `url('songs/${songs[0].folder}/${songs[0].cover}')`);
-    document.body.style.setProperty('--fade-bg-1', 1);
-    document.body.style.setProperty('--fade-bg-2', 0);
-
     const cards = document.querySelectorAll('.song-card');
+
     cards.forEach(card => {
         const cover = card.getAttribute('data-cover');
 
         card.addEventListener('mouseenter', () => {
-            const nextBG = currentBG === 1 ? '--bg-all-2' : '--bg-all-1';
-            const fade1 = currentBG === 1 ? 0 : 1;
-            const fade2 = currentBG === 1 ? 1 : 0;
-
-            document.body.style.setProperty(nextBG, `url('${cover}')`);
-            document.body.style.setProperty('--fade-bg-1', fade1);
-            document.body.style.setProperty('--fade-bg-2', fade2);
-
-            currentBG = currentBG === 1 ? 2 : 1;
+            // 先設定背景圖到兩個 layer
+            document.body.style.setProperty('--bg-all-1', `url('${cover}')`);
+            document.body.style.setProperty('--bg-all-2', `url('${cover}')`);
+            // 顯示背景
+            document.body.style.setProperty('--fade-bg-1', 1);
+            document.body.style.setProperty('--fade-bg-2', 0);
         });
 
         card.addEventListener('mouseleave', () => {
-            const firstCover = `url('songs/${songs[0].folder}/${songs[0].cover}')`;
-            if (currentBG === 1) {
-                document.body.style.setProperty('--bg-all-2', firstCover);
-                document.body.style.setProperty('--fade-bg-1', 1);
-                document.body.style.setProperty('--fade-bg-2', 0);
-            } else {
-                document.body.style.setProperty('--bg-all-1', firstCover);
-                document.body.style.setProperty('--fade-bg-1', 0);
-                document.body.style.setProperty('--fade-bg-2', 1);
-            }
+            // 隱藏背景
+            document.body.style.setProperty('--fade-bg-1', 0);
+            document.body.style.setProperty('--fade-bg-2', 0);
         });
     });
 }
