@@ -44,16 +44,18 @@ async function loadSongs() {
 
     // 歌曲列表
     listDiv.innerHTML = songs.map(song => `
+    <div class="song-wrapper" style="--bg: url('songs/${song.folder}/${song.cover}')">
         <a class="song-card"
-           href="songs/${song.folder}/index.html"
-           style="--bg: url('songs/${song.folder}/${song.cover}')">
+           href="songs/${song.folder}/index.html">
             <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
             <div>
                 <h3>${song.title}</h3>
                 <p>${song.artist}</p>
             </div>
         </a>
-    `).join("");
+    </div>
+`).join("");
+
 }
 
 loadSongs();
