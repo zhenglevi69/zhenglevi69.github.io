@@ -5,29 +5,37 @@
     <title>歌詞翻譯網站</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
-<div id="bg-layer"></div>
-
 <body>
 
-<div id="container">
+    <!-- 全頁背景 -->
+    <div id="bg-layer"></div>
 
-    <!-- 搜尋欄 -->
-    <header>
-        <input id="search" type="text" placeholder="搜尋歌曲或歌手…">
-    </header>
+    <!-- 右上角自介按鈕 -->
+    <div id="top-right">
+        <a href="about.html" id="about-btn">
+            <img src="images/my_avatar.jpg" alt="頭像">
+        </a>
+    </div>
 
-    <!-- 公告區：最新翻譯 -->
-    <div id="latest" class="banner"></div>
+    <!-- 中央內容容器 -->
+    <div id="container">
 
-    <!-- 歌曲列表 -->
-    <main>
-        <h2>所有翻譯</h2>
-        <div id="song-list"></div>
-    </main>
+        <!-- 搜尋欄 -->
+        <header>
+            <input id="search" type="text" placeholder="搜尋歌曲或歌手…">
+        </header>
 
-</div>
+        <!-- 公告區：最新翻譯 -->
+        <div id="latest" class="banner"></div>
 
-<script src="script.js"></script>
+        <!-- 歌曲列表 -->
+        <main>
+            <h2>所有翻譯</h2>
+            <div id="song-list"></div>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
