@@ -175,4 +175,6 @@ body.single-song .notes {
     text-align: center;
 }
 
-body.single-song { color: #fff; }
+body.single-song {
+    color: #fff;
+}
