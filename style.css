@@ -1,4 +1,4 @@
-/* 全頁背景 & 中央框 */
+/* 全頁背景（卷軸 + 框無關） */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -10,21 +10,34 @@ body {
     justify-content: center;
 }
 
-/* 滾動背景（框外） */
-body::before {
+/* 全頁背景層 1 */
+body::before,
+body::after {
     content: "";
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;           /* 兩倍寬度方便無縫循環 */
+    width: 200%;
     height: 100%;
-    background-image: var(--bg-all, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
     background-size: cover;
+    background-position: center center;
     background-repeat: repeat-x;
     z-index: -1;
     filter: brightness(0.2);
     animation: scroll-bg 30s linear infinite;
+    transition: opacity 1s ease; /* 淡入淡出 */
 }
+
+body::before {
+    background-image: var(--bg-all-1, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
+    opacity: 1;
+}
+
+body::after {
+    background-image: var(--bg-all-2, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
+    opacity: 0;
+}
+
 
 @keyframes scroll-bg {
     from { transform: translateX(0); }
@@ -38,7 +51,7 @@ body::before {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
     border: 2px solid #333;
     border-radius: 12px;
 }
