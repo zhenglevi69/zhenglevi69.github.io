@@ -29,8 +29,8 @@ body {
 /* 中央內容框 */
 #container {
     width: 1024px;                  /* 適配正方形背景比例 */
-    min-height: 959px;              /* 固定比例 */
-    max-height: 959px;
+    min-height: 1000px;              /* 固定比例 */
+    max-height: 1000px;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
