@@ -1,9 +1,9 @@
-/* 全頁背景容器（hover 顯示、卷軸） */
+/* 保留原有背景層、滾動、卡片樣式，不變 */
 #bg-layer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;   /* 保證可以水平滾動 */
+    width: 200%;
     height: 100%;
     background-size: contain;
     background-repeat: repeat-x;
@@ -33,15 +33,16 @@ body {
 /* 中央內容框 */
 #container {
     width: 900px;
-    min-height: 100vh;
+    max-height: 800px;          /* 固定最大高度，保持背景裁切 */
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto;
-    background: rgba(0,0,0,0.8); /* 或全黑 #111 */
-    z-index: 1;                   /* 保證在背景之上 */
+    overflow-y: auto;           /* 內容超出時可滾動 */
+    overflow-x: hidden;
+    background: rgba(0,0,0,0.8);
+    z-index: 1;                 /* 保證在背景之上 */
     border: 2px solid #333;
     border-radius: 12px;
-    
+    margin: 0 auto;
 }
 
 /* 搜尋欄置中 */
