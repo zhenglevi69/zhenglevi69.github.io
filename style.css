@@ -21,6 +21,16 @@
     to   { transform: translateX(-50%); }
 }
 
+/* 頁面 body 設置 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;              /* 預設全黑 */
+    color: #fff;
+    display: flex;
+    justify-content: center;       /* 首頁置中 */
+}
+
 /* 中央內容框 */
 #container {
     width: 900px;
@@ -61,6 +71,7 @@ header {
     top: 20px;
     z-index: 10;
     cursor: pointer;
+    color: #fff;                   /* 字體白色 */
 }
 
 #latest img {
@@ -72,6 +83,7 @@ header {
 
 #latest div {
     text-align: left;
+    color: #fff;                   /* 字體白色 */
 }
 
 /* 歌曲卡片 */
@@ -122,6 +134,54 @@ body.single-song #container {
     overflow-y: auto;
     background: #111 !important;
     margin: 0 auto;
+}
+
+body.single-song .header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+body.single-song .header img {
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+body.single-song .lyrics {
+    margin-top: 40px;
+    text-align: center;
+}
+
+body.single-song .line {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+body.single-song .og {
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+body.single-song .zh {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+body.single-song .notes {
+    margin-top: 50px;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
+    white-space: pre-wrap;
+    text-align: center;
 }
 
 body.single-song, body.single-song * {
