@@ -50,33 +50,56 @@ header {
     margin-bottom: 20px;
 }
 
-/* 卡片設定 */
+/* 卡片外溢背景 + 卷軸 */
 .song-card {
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* 讓背景能外溢 */
     z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: #1c1c1c;
+    padding: 15px 20px;
+    margin: 10px auto;
+    border-radius: 8px;
+    border: 2px solid #333;
+    width: 100%;
+    max-width: 800px;
+
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s;
 }
 
-/* 背景封面（水平滾動） */
+/* 滾動背景：外溢 */
 .song-card::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: -10px;   /* 往外延伸 */
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+
     background-image: var(--bg);
     background-size: cover;
     background-repeat: repeat-x;
     background-position: 0 center;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 0;
+
+    opacity: 0; /* 平時不顯示 */
+    transition: opacity 0.4s ease;
+    z-index: -1; /* 保證在卡片外背景 */
+    filter: brightness(0.4);
 }
 
+/* Hover 時才開始滑動 */
 .song-card:hover::before {
-    opacity: 0.12;
+    opacity: 0.4; /* 顯示背景但半透明 */
     animation: scroll-bg 12s linear infinite;
 }
 
-/* 滾動動畫 */
+/* 背景無限向左卷軸 */
 @keyframes scroll-bg {
     0% { background-position: 0 center; }
     100% { background-position: -100% center; }
