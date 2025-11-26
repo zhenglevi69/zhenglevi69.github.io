@@ -50,24 +50,44 @@ header {
     margin-bottom: 20px;
 }
 
-/* 歌曲列表按鈕化 */
+/* 卡片設定 */
 .song-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #1c1c1c;
-    padding: 15px 20px;
-    margin: 10px auto;
-    border-radius: 8px;
-    border: 2px solid #333;
-    width: 100%;
-    max-width: 800px;
-    transition: transform 0.2s, background 0.3s;
-    text-decoration: none;
-    color: #fff;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
+
+/* 背景封面（水平滾動） */
+.song-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg);
+    background-size: cover;
+    background-repeat: repeat-x;
+    background-position: 0 center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.song-card:hover::before {
+    opacity: 0.12;
+    animation: scroll-bg 12s linear infinite;
+}
+
+/* 滾動動畫 */
+@keyframes scroll-bg {
+    0% { background-position: 0 center; }
+    100% { background-position: -100% center; }
+}
+
+/* 確保文字在卡片上方 */
+.song-card > * {
+    position: relative;
+    z-index: 2;
+}
+
 
 .song-card img {
     width: 80px;
