@@ -1,7 +1,6 @@
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
-    const bgLayer = document.getElementById("bg-layer");
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
@@ -23,9 +22,13 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    songs.sort((a,b) => a.date && b.date ? new Date(b.date)-new Date(a.date) : 0);
+    // 排序
+    songs.sort((a, b) => {
+        if (a.date && b.date) return new Date(b.date) - new Date(a.date);
+        return 0;
+    });
 
-    // 最新翻譯公告
+    // 最新翻譯
     const latest = songs[0];
     latestDiv.innerHTML = `
         <img src="songs/${latest.folder}/${latest.cover}" alt="${latest.title}">
@@ -38,7 +41,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 生成卡片
+    // 卡片
     listDiv.innerHTML = songs.map(song => `
         <a class="song-card" href="songs/${song.folder}/index.html" data-cover="songs/${song.folder}/${song.cover}">
             <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
@@ -49,18 +52,31 @@ async function loadSongs() {
         </a>
     `).join("");
 
+    // 建立全頁背景層
+    let bgLayer = document.getElementById("bg-layer");
+    if (!bgLayer) {
+        bgLayer = document.createElement("div");
+        bgLayer.id = "bg-layer";
+        document.body.appendChild(bgLayer);
+    }
+
     const cards = document.querySelectorAll('.song-card');
 
     cards.forEach(card => {
         const cover = card.getAttribute('data-cover');
 
+        let animInterval;
+
         card.addEventListener('mouseenter', () => {
             bgLayer.style.backgroundImage = `url('${cover}')`;
-            bgLayer.style.opacity = 1;  // 顯示背景
+            bgLayer.style.opacity = '1';
+            bgLayer.style.backgroundSize = 'contain';
+            bgLayer.style.animation = 'scroll-bg 30s linear infinite';
         });
 
         card.addEventListener('mouseleave', () => {
-            bgLayer.style.opacity = 0;  // 隱藏背景
+            bgLayer.style.opacity = '0';
+            bgLayer.style.animation = 'none';
         });
     });
 }
