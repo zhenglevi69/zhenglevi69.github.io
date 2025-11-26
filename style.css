@@ -54,6 +54,7 @@ header {
 .song-wrapper {
     position: relative;
     width: 100%;
+    height: 120px;   /* ★ 背景固定高度，避免抖動 */
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -64,43 +65,34 @@ header {
     position: absolute;
     top: 0;
     left: 0;
-    width: 200%;             /* 兩倍寬度，用來做無縫循環 */
+    width: 200%;             
     height: 100%;
     background-image: var(--bg);
     background-size: cover;
     background-repeat: repeat-x;
-    filter: brightness(0.4);  /* 你可調暗度，避免干擾前景 */
+    filter: brightness(0.4);
     animation: scroll-bg 18s linear infinite;
-    z-index: 0;
+    z-index: 1;
 }
 
-/* 無限橫向移動 */
-@keyframes scroll-bg {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); } /* 因為寬度是200% 所以移 50% 就循環 */
-}
-
-/* song-card：前景按鈕 */
+/* 前景卡片 */
 .song-card {
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    inset: 0;                  /* ★ 讓卡片完美置中重疊 */
     display: flex;
     align-items: center;
     gap: 14px;
     padding: 14px;
-    background: rgba(0,0,0,0.5); /* 可調透明 */
+    background: rgba(0,0,0,0.45);
     border: 2px solid #fff;
     border-radius: 12px;
     text-decoration: none;
     color: white;
     backdrop-filter: blur(4px);
+    z-index: 2;
+    box-sizing: border-box;
 }
 
-/* hover：只變亮 + 輕微放大，不破壞背景 */
-.song-card:hover {
-    background: rgba(255,255,255,0.15);
-    transform: scale(1.02);
-}
 
 
 /* ================================
