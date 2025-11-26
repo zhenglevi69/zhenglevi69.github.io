@@ -42,7 +42,6 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 歌曲列表
     listDiv.innerHTML = songs.map(song => `
     <div class="song-wrapper" style="--bg: url('songs/${song.folder}/${song.cover}')">
         <a class="song-card"
@@ -55,6 +54,7 @@ async function loadSongs() {
         </a>
     </div>
 `).join("");
+
 
 }
 
