@@ -174,3 +174,5 @@ body.single-song .notes {
     white-space: pre-wrap;
     text-align: center;
 }
+
+body.single-song { color: #fff; }
