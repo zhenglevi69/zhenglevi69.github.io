@@ -59,24 +59,24 @@ async function loadSongs() {
         bgLayer.id = "bg-layer";
         document.body.appendChild(bgLayer);
     }
+    // 初始化動畫
+    bgLayer.style.animation = 'scroll-bg 30s linear infinite';
+    bgLayer.style.backgroundSize = 'contain';
+    bgLayer.style.opacity = '0';
 
     const cards = document.querySelectorAll('.song-card');
 
     cards.forEach(card => {
         const cover = card.getAttribute('data-cover');
 
-        let animInterval;
-
         card.addEventListener('mouseenter', () => {
             bgLayer.style.backgroundImage = `url('${cover}')`;
             bgLayer.style.opacity = '1';
-            bgLayer.style.backgroundSize = 'contain';
-            bgLayer.style.animation = 'scroll-bg 30s linear infinite';
         });
 
         card.addEventListener('mouseleave', () => {
             bgLayer.style.opacity = '0';
-            bgLayer.style.animation = 'none';
+            // 保持動畫繼續滾動
         });
     });
 }
