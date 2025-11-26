@@ -50,107 +50,58 @@ header {
     margin-bottom: 20px;
 }
 
-/* 卡片外溢背景 + 卷軸 */
-.song-card {
+/* song-wrapper：外掛背景圖容器 */
+.song-wrapper {
     position: relative;
-    overflow: visible; /* 讓背景能外溢 */
-    z-index: 1;
-
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    background: #1c1c1c;
-    padding: 15px 20px;
-    margin: 10px auto;
-    border-radius: 8px;
-    border: 2px solid #333;
     width: 100%;
-    max-width: 800px;
-
-    text-decoration: none;
-    color: #fff;
-    transition: transform 0.2s;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-/* 滾動背景：外溢 */
-.song-card::before {
-    content: "";
-    position: absolute;
-    top: -10px;   /* 往外延伸 */
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-
-    background-image: var(--bg);
-    background-size: cover;
-    background-repeat: repeat-x;
-    background-position: 0 center;
-
-    opacity: 0; /* 平時不顯示 */
-    transition: opacity 0.4s ease;
-    z-index: -1; /* 保證在卡片外背景 */
-    filter: brightness(0.4);
-}
-
-/* Hover 時才開始滑動 */
-.song-card:hover::before {
-    opacity: 0.4; /* 顯示背景但半透明 */
-    animation: scroll-bg 12s linear infinite;
-}
-
-/* 背景無限向左卷軸 */
-@keyframes scroll-bg {
-    0% { background-position: 0 center; }
-    100% { background-position: -100% center; }
-}
-
-/* 確保文字在卡片上方 */
-.song-card > * {
-    position: relative;
-    z-index: 2;
-}
-
-
-.song-card img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
-    z-index: 2;
-}
-
-.song-card div {
-    text-align: left;
-    z-index: 2;
-}
-
-/* Hover 背景效果 */
-.song-card::before {
+/* 背景卷軸 */
+.song-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 200%;             /* 兩倍寬度，用來做無縫循環 */
     height: 100%;
+    background-image: var(--bg);
     background-size: cover;
-    background-position: center;
-    filter: brightness(0.3);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
+    background-repeat: repeat-x;
+    filter: brightness(0.4);  /* 你可調暗度，避免干擾前景 */
+    animation: scroll-bg 18s linear infinite;
+    z-index: 0;
 }
 
-.song-card:hover::before {
-    opacity: 1;
+/* 無限橫向移動 */
+@keyframes scroll-bg {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); } /* 因為寬度是200% 所以移 50% 就循環 */
 }
 
-/* Hover 放大 */
+/* song-card：前景按鈕 */
+.song-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: rgba(0,0,0,0.5); /* 可調透明 */
+    border: 2px solid #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    backdrop-filter: blur(4px);
+}
+
+/* hover：只變亮 + 輕微放大，不破壞背景 */
 .song-card:hover {
-    transform: scale(1.03);
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.02);
 }
 
-/* 單首歌頁面 CSS 保持不變 */
 
 /* ================================
    單首歌頁面專用
