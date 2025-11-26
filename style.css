@@ -1,4 +1,4 @@
-/* 全頁背景（卷軸 + 框無關） */
+/* 全頁背景（框外，初始隱藏） */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@ body {
     justify-content: center;
 }
 
-/* 全頁背景層 1 & 2 */
+/* 背景層，初始透明 */
 body::before,
 body::after {
     content: "";
@@ -19,23 +19,14 @@ body::after {
     left: 0;
     width: 200%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;  /* 確保整張圖完全顯示 */
     background-position: center center;
     background-repeat: repeat-x;
     z-index: -1;
     filter: brightness(0.2);
     animation: scroll-bg 30s linear infinite;
-    transition: opacity 1s ease; /* 淡入淡出 */
-}
-
-body::before {
-    background-image: var(--bg-all-1, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
-    opacity: var(--fade-bg-1, 1);
-}
-
-body::after {
-    background-image: var(--bg-all-2, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
-    opacity: var(--fade-bg-2, 0);
+    transition: opacity 0.6s ease; /* 淡入淡出 */
+    opacity: 0; /* 初始隱藏 */
 }
 
 /* 滾動動畫 */
@@ -56,21 +47,7 @@ body::after {
     border-radius: 12px;
 }
 
-/* 搜尋欄置中 */
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#search {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-}
-
-/* 公告（最新翻譯） */
+/* 公告 */
 #latest {
     display: flex;
     align-items: center;
@@ -145,54 +122,6 @@ body.single-song #container {
     overflow-y: auto;
     background: #111 !important;
     margin: 0 auto;
-}
-
-body.single-song .header {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-body.single-song .header img {
-    width: 200px !important;
-    height: 200px !important;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-body.single-song .lyrics {
-    margin-top: 40px;
-    text-align: center;
-}
-
-body.single-song .line {
-    display: block;
-    text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-}
-
-body.single-song .og {
-    font-size: 1.1rem;
-    color: #bbb;
-}
-
-body.single-song .zh {
-    font-size: 1.2rem;
-    margin-top: 5px;
-}
-
-body.single-song .notes {
-    margin-top: 50px;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-    white-space: pre-wrap;
-    text-align: center;
 }
 
 body.single-song, body.single-song * {
