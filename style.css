@@ -10,7 +10,7 @@ body {
     justify-content: center;
 }
 
-/* 全頁背景層 1 */
+/* 全頁背景層 1 & 2 */
 body::before,
 body::after {
     content: "";
@@ -30,15 +30,15 @@ body::after {
 
 body::before {
     background-image: var(--bg-all-1, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
-    opacity: 1;
+    opacity: var(--fade-bg-1, 1);
 }
 
 body::after {
     background-image: var(--bg-all-2, url('songs/hirata_shiho/heartbeat_heartbreak/cover.jpg'));
-    opacity: 0;
+    opacity: var(--fade-bg-2, 0);
 }
 
-
+/* 滾動動畫 */
 @keyframes scroll-bg {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
