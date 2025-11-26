@@ -1,6 +1,7 @@
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
+    const bgLayer = document.getElementById("bg-layer");
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
@@ -22,7 +23,6 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    // 按日期排序
     songs.sort((a,b) => a.date && b.date ? new Date(b.date)-new Date(a.date) : 0);
 
     // 最新翻譯公告
@@ -55,18 +55,12 @@ async function loadSongs() {
         const cover = card.getAttribute('data-cover');
 
         card.addEventListener('mouseenter', () => {
-            // 先設定背景圖到兩個 layer
-            document.body.style.setProperty('--bg-all-1', `url('${cover}')`);
-            document.body.style.setProperty('--bg-all-2', `url('${cover}')`);
-            // 顯示背景
-            document.body.style.setProperty('--fade-bg-1', 1);
-            document.body.style.setProperty('--fade-bg-2', 0);
+            bgLayer.style.backgroundImage = `url('${cover}')`;
+            bgLayer.style.opacity = 1;  // 顯示背景
         });
 
         card.addEventListener('mouseleave', () => {
-            // 隱藏背景
-            document.body.style.setProperty('--fade-bg-1', 0);
-            document.body.style.setProperty('--fade-bg-2', 0);
+            bgLayer.style.opacity = 0;  // 隱藏背景
         });
     });
 }
