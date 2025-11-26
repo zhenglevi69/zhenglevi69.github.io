@@ -55,6 +55,17 @@ async function loadSongs() {
         </a>
     `).join("");
 
+        // 假設 card 是單個 song-card 元素
+    const cards = document.querySelectorAll('.song-card');
+    cards.forEach(card => {
+        const img = card.querySelector('img');
+        if (img) {
+            const src = img.getAttribute('src');
+            card.style.setProperty('--bg', `url('${src}')`);
+        }
+    });
+
+
     // 設置 hover 背景
     document.querySelectorAll('.song-card').forEach(card => {
         const cover = card.getAttribute('data-cover');
