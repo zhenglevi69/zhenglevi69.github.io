@@ -195,6 +195,8 @@ body.single-song .notes {
     text-align: center;
 }
 
-body.single-song {
-    color: #fff;
+/* 單首歌頁面的全白字體覆蓋 */
+body.single-song,
+body.single-song * {
+    color: #fff !important;
 }
