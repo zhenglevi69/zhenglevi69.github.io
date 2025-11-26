@@ -3,15 +3,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;
+    width: 200%;   /* 保證可以水平滾動 */
     height: 100%;
-    background-size: contain;      /* 保持整張圖完整顯示 */
+    background-size: contain;
     background-repeat: repeat-x;
-    background-position: center center;
     z-index: -1;
     filter: brightness(0.2);
-    pointer-events: none;          /* 不干擾滑鼠事件 */
-    opacity: 0;                    /* 初始隱藏 */
+    pointer-events: none;
+    opacity: 0;
     transition: opacity 0.6s ease;
 }
 
@@ -38,9 +37,11 @@ body {
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.8); /* 或全黑 #111 */
+    z-index: 1;                   /* 保證在背景之上 */
     border: 2px solid #333;
     border-radius: 12px;
+    
 }
 
 /* 搜尋欄置中 */
