@@ -5,7 +5,7 @@ async function loadSongs() {
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
         "hirata_shiho/another_song",
-        // 其他歌曲依序列出
+        // 其他歌曲資料夾依序列出
     ];
 
     const songs = [];
@@ -14,7 +14,7 @@ async function loadSongs() {
         try {
             const res = await fetch(`songs/${folder}/data.json`);
             const data = await res.json();
-            data.folder = folder; // 保存資料夾路徑
+            data.folder = folder;
             songs.push(data);
         } catch (err) {
             console.error(`Failed to load ${folder}`, err);
@@ -44,7 +44,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 歌曲列表
+    // 所有歌曲列表
     listDiv.innerHTML = songs.map(song => `
         <div class="song-wrapper" style="--bg: url('songs/${song.folder}/${song.cover}')">
             <a class="song-card" href="songs/${song.folder}/index.html">
