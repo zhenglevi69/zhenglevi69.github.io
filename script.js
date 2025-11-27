@@ -126,15 +126,16 @@ async function loadSongs() {
         });
     });
 
-    // 音量按鈕（頭像左邊）
+    // ===== 頭像右上 + 音量按鈕左邊 =====
     const topRight = document.getElementById("top-right");
     const avatar = document.getElementById("about-btn");
 
+    // 音量按鈕
     const volumeToggle = document.createElement("img");
     volumeToggle.id = "volume-toggle";
     volumeToggle.src = "images/on.png"; // 預設開啟
-    volumeToggle.style.width = "32px";
-    volumeToggle.style.height = "32px";
+    volumeToggle.style.width = "24px";
+    volumeToggle.style.height = "24px";
     volumeToggle.style.marginRight = "8px";
     volumeToggle.style.cursor = "pointer";
     volumeToggle.style.verticalAlign = "middle";
