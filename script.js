@@ -4,8 +4,7 @@ async function loadSongs() {
     const searchInput = document.getElementById("search"); 
 
     const songFolders = [
-        "hirata_shiho/heartbeat_heartbreak",
-        "hirata_shiho/another_song"
+        "hirata_shiho/heartbeat_heartbreak"
     ];
 
     const songs = [];
