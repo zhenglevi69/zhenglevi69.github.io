@@ -118,7 +118,7 @@ async function loadSongs() {
                         audio.volume = vol;
                     }, 25);
                 }, 10000);
-            }, 500);
+            }, 1000);
         });
 
         card.addEventListener('mouseleave', () => {
