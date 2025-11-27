@@ -237,3 +237,23 @@ body.single-song, body.single-song * {
 #about-btn img:hover {
     transform: scale(1.1);
 }
+
+/* 返回首頁按鈕 */
+#back-home {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 9999;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+#back-home:hover {
+  opacity: 1;
+}
+
+#back-home img {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
