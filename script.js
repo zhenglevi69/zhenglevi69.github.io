@@ -99,8 +99,8 @@ async function loadSongs() {
                 let vol = 0;
                 const fadeIn = setInterval(() => {
                     vol += 0.05;
-                    if(vol >= 0.8) {
-                        vol = 0.8;
+                    if(vol >= 1) {
+                        vol = 1;
                         clearInterval(fadeIn);
                     }
                     audio.volume = vol;
