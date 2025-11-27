@@ -99,7 +99,7 @@ async function loadSongs() {
             hoverTimeout = setTimeout(() => {
                 if (!isMuted) {
                     currentAudio = new Audio(audioSrc);
-                    currentAudio.volume = 0.4;
+                    currentAudio.volume = 0.2;
                     currentAudio.play().catch(() => {});
                 }
             }, HOVER_DELAY);
