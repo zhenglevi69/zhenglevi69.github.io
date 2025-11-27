@@ -7,9 +7,16 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body class="single-song">
+
+<!-- 返回首頁按鈕 -->
+<a id="back-home" href="/">
+  <img src="/images/back.svg" alt="返回首頁">
+</a>
+
 <div id="container">
   <div id="content">Loading...</div>
 </div>
+
 <script>
 async function loadData() {
   const response = await fetch("data.json");
@@ -38,5 +45,6 @@ async function loadData() {
 }
 loadData();
 </script>
+
 </body>
 </html>
