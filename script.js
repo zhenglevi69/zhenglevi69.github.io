@@ -79,16 +79,66 @@ async function loadSongs() {
     const cards = document.querySelectorAll('.song-card');
     cards.forEach(card => {
         const cover = card.getAttribute('data-cover');
+        const folder = card.getAttribute('href').replace('songs/', '').replace('/index.html','');
+        const audioSrc = `songs/${folder}/audio.mp3`;
+        let audio, hoverTimeout;
 
         card.addEventListener('mouseenter', () => {
+            // 背景顯示
             bgLayer.style.backgroundImage = `url('${cover}')`;
             bgLayer.style.opacity = '1';
             visible = true;
+
+            // 1 秒延遲播放
+            hoverTimeout = setTimeout(() => {
+                audio = new Audio(audioSrc);
+                audio.volume = 0;
+                audio.play();
+
+                // fade in 0.5 秒
+                let vol = 0;
+                const fadeIn = setInterval(() => {
+                    vol += 0.05;
+                    if(vol >= 1) {
+                        vol = 1;
+                        clearInterval(fadeIn);
+                    }
+                    audio.volume = vol;
+                }, 25);
+
+                // 10 秒後 fade out 並停止
+                setTimeout(() => {
+                    const fadeOut = setInterval(() => {
+                        vol -= 0.05;
+                        if(vol <= 0) {
+                            vol = 0;
+                            audio.pause();
+                            clearInterval(fadeOut);
+                        }
+                        audio.volume = vol;
+                    }, 25);
+                }, 10000);
+            }, 1000);
         });
 
         card.addEventListener('mouseleave', () => {
             bgLayer.style.opacity = '0';
             visible = false;
+
+            clearTimeout(hoverTimeout);
+
+            if(audio && !audio.paused) {
+                let vol = audio.volume;
+                const fadeOut = setInterval(() => {
+                    vol -= 0.05;
+                    if(vol <= 0) {
+                        vol = 0;
+                        audio.pause();
+                        clearInterval(fadeOut);
+                    }
+                    audio.volume = vol;
+                }, 25);
+            }
         });
     });
 
