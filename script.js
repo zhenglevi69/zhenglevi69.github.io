@@ -1,7 +1,7 @@
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
-    const searchInput = document.getElementById("search"); // 搜尋欄
+    const searchInput = document.getElementById("search"); 
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak",
@@ -29,9 +29,10 @@ async function loadSongs() {
         return 0;
     });
 
-    // 最新翻譯
+    // 推薦翻譯
     const latest = songs[0];
     latestDiv.innerHTML = `
+        <div class="label">推薦翻譯</div>
         <img src="songs/${latest.folder}/${latest.cover}" alt="${latest.title}">
         <div>
             <h3>${latest.title}</h3>
@@ -42,7 +43,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 卡片
+    // 歌曲卡片
     listDiv.innerHTML = songs.map(song => `
         <a class="song-card" href="songs/${song.folder}/index.html" data-cover="songs/${song.folder}/${song.cover}">
             <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
@@ -53,7 +54,7 @@ async function loadSongs() {
         </a>
     `).join("");
 
-    // 建立全頁背景層
+    // 全頁背景層
     let bgLayer = document.getElementById("bg-layer");
     if (!bgLayer) {
         bgLayer = document.createElement("div");
@@ -61,21 +62,20 @@ async function loadSongs() {
         document.body.appendChild(bgLayer);
     }
 
-    let scrollX = 0;           // 背景 X 位置
-    let speed = 0.3;           // 滾動速度 px/frame
-    let visible = false;       // 是否顯示背景
-    let requestId;
+    let scrollX = 0;
+    let speed = 0.3;
+    let visible = false;
 
     function animate() {
         if (visible) {
             scrollX -= speed;
-            if (scrollX <= -window.innerWidth) scrollX = 0; // 循環
+            if (scrollX <= -window.innerWidth) scrollX = 0; 
             bgLayer.style.transform = `translateX(${scrollX}px)`;
         }
-        requestId = requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
     }
 
-    animate(); // 開始動畫
+    animate();
 
     const cards = document.querySelectorAll('.song-card');
     cards.forEach(card => {
