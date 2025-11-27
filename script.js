@@ -78,121 +78,118 @@ async function loadSongs() {
 
     animate();
 
-    //=============//
-    // ★ 音效播放系統 ★
-    //=============//
+  //=============//
+// ★ 音效播放系統（穩定升級版）★
+//=============//
 
-    let hoverTimeout = null;       // 延遲播放的計時器
-    let fadeInterval = null;       // 淡入淡出的 interval
-    let audio = null;              // 單一全域 audio
-    let isPlayingPreview = false;  // 避免重複播放
-    const HOVER_DELAY = 1000;      // 滑鼠停留多久後播放 (ms)
-    const PREVIEW_DURATION = 10000; // 播放多久後淡出 (ms)
-    const MAX_VOLUME = 0.4;        // 最大音量
-    const FADE_STEP = 0.03;        // 每次調整音量幅度
-    const FADE_INTERVAL = 30;      // 音量調整間隔 (ms)
+let hoverDelayTimer = null;     // 延遲播放
+let fadeInTimer = null;         // 淡入
+let fadeOutTimer = null;        // 淡出
+let autoStopTimer = null;       // 自動停止
+let currentAudio = null;        // 單一音效
+let isPreviewing = false;       // 是否正在預覽音效
 
-    // 所有歌卡片
-    const cards = document.querySelectorAll(".song-card");
+const HOVER_DELAY = 500;        // 滑鼠停留多久後播放
+const MAX_VOLUME = 0.4;         // 最終音量
+const FADE_STEP = 0.02;         // 每次音量變動
+const FADE_INTERVAL = 25;       // 音量變動間隔
+const PREVIEW_DURATION = 5000;  // 播放多長後自動淡出（建議 3~5 秒）
 
-    cards.forEach(card => {
-        const cover = card.getAttribute("data-cover");
-        const folder = card.getAttribute("data-folder");
-        const audioSrc = `songs/${folder}/audio.mp3`;
+function clearAllAudioTimers() {
+    clearTimeout(hoverDelayTimer);
+    clearTimeout(autoStopTimer);
+    clearInterval(fadeInTimer);
+    clearInterval(fadeOutTimer);
+}
 
-        // pointerenter 比 mouseenter 穩定
-        card.addEventListener("pointerenter", () => {
+cards.forEach(card => {
+    const cover = card.getAttribute("data-cover");
+    const folder = card.getAttribute("data-folder");
+    const audioSrc = `songs/${folder}/audio.mp3`;
 
-            // 背景顯示
-            bgLayer.style.backgroundImage = `url('${cover}')`;
-            bgLayer.style.opacity = "1";
-            visible = true;
+    card.addEventListener("pointerenter", () => {
 
-            // 如果正在播放預覽，不會再啟動
-            if (isPlayingPreview) return;
+        // 背景顯示
+        bgLayer.style.backgroundImage = `url('${cover}')`;
+        bgLayer.style.opacity = "1";
+        visible = true;
 
-            // 設定 1 秒延遲播放
-            hoverTimeout = setTimeout(() => {
-                isPlayingPreview = true;
+        // 任何舊的播放流程都停掉
+        clearAllAudioTimers();
 
-                // 如果舊 audio 還在 fade out，強制停掉
-                if (audio) {
-                    audio.pause();
-                }
+        hoverDelayTimer = setTimeout(() => {
 
-                audio = new Audio(audioSrc);
-                audio.currentTime = 0;
-                audio.volume = 0;
+            // 防止重複啟動
+            if (isPreviewing) return;
+            isPreviewing = true;
 
-                audio.play().catch(err => {
-                    console.warn("Autoplay 被擋住", err);
-                });
-
-                // ---- fade in ----
-                let vol = 0;
-                fadeInterval = setInterval(() => {
-                    vol += FADE_STEP;
-                    if (vol >= MAX_VOLUME) {
-                        vol = MAX_VOLUME;
-                        clearInterval(fadeInterval);
-                    }
-                    audio.volume = vol;
-                }, FADE_INTERVAL);
-
-                // ---- 播放 10 秒後自動 fade out + 停止 ----
-                setTimeout(() => {
-                    if (!audio) return;
-                    clearInterval(fadeInterval);
-
-                    fadeInterval = setInterval(() => {
-                        vol -= FADE_STEP;
-                        if (vol <= 0) {
-                            vol = 0;
-                            audio.volume = 0;
-                            audio.pause();
-                            clearInterval(fadeInterval);
-                            isPlayingPreview = false;
-                        }
-                        audio.volume = vol;
-                    }, FADE_INTERVAL);
-
-                }, PREVIEW_DURATION);
-
-            }, HOVER_DELAY);
-        });
-
-        // pointerleave 比 mouseleave 穩定
-        card.addEventListener("pointerleave", () => {
-
-            // 背景淡出
-            bgLayer.style.opacity = '0';
-            visible = false;
-
-            // 取消延遲播放（如果還沒開始）
-            clearTimeout(hoverTimeout);
-
-            // 如果還沒播就退出 → 不做事
-            if (!isPlayingPreview) return;
-
-            // 正在播 → 開始淡出
-            if (audio) {
-                clearInterval(fadeInterval);
-
-                let vol = audio.volume;
-                fadeInterval = setInterval(() => {
-                    vol -= FADE_STEP;
-                    if (vol <= 0) {
-                        vol = 0;
-                        audio.volume = 0;
-                        audio.pause();
-                        clearInterval(fadeInterval);
-                        isPlayingPreview = false;
-                    }
-                    audio.volume = vol;
-                }, FADE_INTERVAL);
+            // 如果舊 audio 還沒完全停掉 → 強制關閉
+            if (currentAudio) {
+                currentAudio.pause();
             }
-        });
+
+            currentAudio = new Audio(audioSrc);
+            currentAudio.volume = 0;
+            currentAudio.currentTime = 0;
+
+            currentAudio.play().catch(() => {});
+
+            // ---- 淡入 ----
+            fadeInTimer = setInterval(() => {
+                if (currentAudio.volume >= MAX_VOLUME) {
+                    currentAudio.volume = MAX_VOLUME;
+                    clearInterval(fadeInTimer);
+                } else {
+                    currentAudio.volume += FADE_STEP;
+                }
+            }, FADE_INTERVAL);
+
+            // ---- 自動停止（避免背景計時器干擾） ----
+            autoStopTimer = setTimeout(() => {
+                clearInterval(fadeInTimer);
+                fadeOutTimer = setInterval(() => {
+                    if (currentAudio.volume <= 0) {
+                        currentAudio.volume = 0;
+                        currentAudio.pause();
+                        clearInterval(fadeOutTimer);
+                        isPreviewing = false;
+                    } else {
+                        currentAudio.volume -= FADE_STEP;
+                    }
+                }, FADE_INTERVAL);
+            }, PREVIEW_DURATION);
+
+        }, HOVER_DELAY);
     });
+
+    card.addEventListener("pointerleave", () => {
+
+        bgLayer.style.opacity = "0";
+        visible = false;
+
+        clearTimeout(hoverDelayTimer);
+
+        // 尚未啟動 → 結束
+        if (!isPreviewing) return;
+
+        clearInterval(fadeInTimer);
+        clearTimeout(autoStopTimer);
+
+        // ---- 滑鼠離開 → 淡出 ----
+        fadeOutTimer = setInterval(() => {
+            if (!currentAudio) return;
+            if (currentAudio.volume <= 0) {
+                currentAudio.volume = 0;
+                currentAudio.pause();
+                clearInterval(fadeOutTimer);
+                isPreviewing = false;
+            } else {
+                currentAudio.volume -= FADE_STEP;
+            }
+        }, FADE_INTERVAL);
+    });
+});
+
 
     // 搜尋功能
     searchInput.addEventListener("input", () => {
