@@ -126,9 +126,13 @@ async function loadSongs() {
         });
     });
 
-    // ===== 單一音量按鈕 =====
+    // ===== 單一音量按鈕（頭像左邊） =====
     const topRight = document.getElementById("top-right");
     const avatar = document.getElementById("about-btn");
+
+    // 先刪除可能存在的舊按鈕
+    const oldToggle = document.getElementById("volume-toggle");
+    if (oldToggle) oldToggle.remove();
 
     const volumeToggle = document.createElement("img");
     volumeToggle.id = "volume-toggle";
@@ -137,9 +141,9 @@ async function loadSongs() {
     volumeToggle.style.height = "24px";
     volumeToggle.style.cursor = "pointer";
     volumeToggle.style.verticalAlign = "middle";
-    volumeToggle.style.marginRight = "8px"; // 預留間距
+    volumeToggle.style.marginRight = "8px"; // 與頭像間距
 
-    // 插入頭像旁
+    // 插入頭像左邊
     topRight.insertBefore(volumeToggle, avatar);
 
     volumeToggle.addEventListener("click", () => {
