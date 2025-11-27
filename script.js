@@ -81,8 +81,10 @@ async function loadSongs() {
     const HOVER_DELAY = 200;
     let hoverTimeout = null;
 
-    // 音量開關（頭像旁）
+    // 音量開關（頭像左邊）
     let audioEnabled = true;
+    const avatar = topRight.querySelector("#about-btn img");
+
     const volumeToggle = document.createElement("img");
     volumeToggle.id = "volume-toggle";
     volumeToggle.src = "images/on.png";
@@ -90,8 +92,8 @@ async function loadSongs() {
     volumeToggle.style.width = "32px";
     volumeToggle.style.height = "32px";
     volumeToggle.style.cursor = "pointer";
-    volumeToggle.style.marginLeft = "8px";
-    topRight.appendChild(volumeToggle);
+    volumeToggle.style.marginRight = "8px"; // 頭像左邊
+    topRight.insertBefore(volumeToggle, avatar);
 
     volumeToggle.addEventListener("click", () => {
         audioEnabled = !audioEnabled;
@@ -120,10 +122,10 @@ async function loadSongs() {
             }
 
             hoverTimeout = setTimeout(() => {
-                if (!audioEnabled) return; // 如果關閉音效，不播放
+                if (!audioEnabled) return; // 靜音時不播放
 
                 currentAudio = new Audio(audioSrc);
-                currentAudio.volume = 0.4; // 音量可在此調整
+                currentAudio.volume = 0.4; // 音量可調整
                 currentAudio.play().catch(() => {});
             }, HOVER_DELAY);
         });
