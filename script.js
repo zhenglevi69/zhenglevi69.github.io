@@ -1,7 +1,8 @@
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
-    const searchInput = document.getElementById("search");
+    const searchInput = document.getElementById("search"); 
+    const topRight = document.getElementById("top-right");
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak"
@@ -74,18 +75,23 @@ async function loadSongs() {
     }
     animate();
 
-    // 音量開關設定
-    let audioEnabled = true; // 初始音效開啟
+    // 音效預覽系統
+    const cards = document.querySelectorAll(".song-card");
+    let currentAudio = null;
+    const HOVER_DELAY = 200;
+    let hoverTimeout = null;
+
+    // 音量開關（頭像旁）
+    let audioEnabled = true;
     const volumeToggle = document.createElement("img");
     volumeToggle.id = "volume-toggle";
     volumeToggle.src = "images/on.png";
-    volumeToggle.style.position = "fixed";
-    volumeToggle.style.top = "10px";
-    volumeToggle.style.left = "10px";
+    volumeToggle.alt = "音量開關";
     volumeToggle.style.width = "32px";
     volumeToggle.style.height = "32px";
     volumeToggle.style.cursor = "pointer";
-    document.body.appendChild(volumeToggle);
+    volumeToggle.style.marginLeft = "8px";
+    topRight.appendChild(volumeToggle);
 
     volumeToggle.addEventListener("click", () => {
         audioEnabled = !audioEnabled;
@@ -96,21 +102,17 @@ async function loadSongs() {
         }
     });
 
-    // 音效預覽系統
-    const cards = document.querySelectorAll(".song-card");
-    let currentAudio = null;
-    const HOVER_DELAY = 200;
-    let hoverTimeout = null;
-
     cards.forEach(card => {
         const cover = card.dataset.cover;
         const audioSrc = card.dataset.audio;
 
         card.addEventListener("pointerenter", () => {
+            // 背景圖
             bgLayer.style.backgroundImage = `url('${cover}')`;
             bgLayer.style.opacity = "1";
             visible = true;
 
+            // 停掉舊音效
             clearTimeout(hoverTimeout);
             if (currentAudio) {
                 currentAudio.pause();
@@ -118,9 +120,10 @@ async function loadSongs() {
             }
 
             hoverTimeout = setTimeout(() => {
-                if (!audioEnabled) return;
+                if (!audioEnabled) return; // 如果關閉音效，不播放
+
                 currentAudio = new Audio(audioSrc);
-                currentAudio.volume = 0.2;
+                currentAudio.volume = 0.4; // 音量可在此調整
                 currentAudio.play().catch(() => {});
             }, HOVER_DELAY);
         });
