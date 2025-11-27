@@ -1,7 +1,7 @@
 async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
-    const searchInput = document.getElementById("search"); 
+    const searchInput = document.getElementById("search");
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak"
@@ -74,6 +74,28 @@ async function loadSongs() {
     }
     animate();
 
+    // 音量開關設定
+    let audioEnabled = true; // 初始音效開啟
+    const volumeToggle = document.createElement("img");
+    volumeToggle.id = "volume-toggle";
+    volumeToggle.src = "images/on.png";
+    volumeToggle.style.position = "fixed";
+    volumeToggle.style.top = "10px";
+    volumeToggle.style.left = "10px";
+    volumeToggle.style.width = "32px";
+    volumeToggle.style.height = "32px";
+    volumeToggle.style.cursor = "pointer";
+    document.body.appendChild(volumeToggle);
+
+    volumeToggle.addEventListener("click", () => {
+        audioEnabled = !audioEnabled;
+        volumeToggle.src = audioEnabled ? "images/on.png" : "images/off.png";
+        if (!audioEnabled && currentAudio) {
+            currentAudio.pause();
+            currentAudio = null;
+        }
+    });
+
     // 音效預覽系統
     const cards = document.querySelectorAll(".song-card");
     let currentAudio = null;
@@ -85,12 +107,10 @@ async function loadSongs() {
         const audioSrc = card.dataset.audio;
 
         card.addEventListener("pointerenter", () => {
-            // 背景圖
             bgLayer.style.backgroundImage = `url('${cover}')`;
             bgLayer.style.opacity = "1";
             visible = true;
 
-            // 停掉舊音效
             clearTimeout(hoverTimeout);
             if (currentAudio) {
                 currentAudio.pause();
@@ -98,6 +118,7 @@ async function loadSongs() {
             }
 
             hoverTimeout = setTimeout(() => {
+                if (!audioEnabled) return;
                 currentAudio = new Audio(audioSrc);
                 currentAudio.volume = 0.2;
                 currentAudio.play().catch(() => {});
