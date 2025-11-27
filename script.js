@@ -2,7 +2,6 @@ async function loadSongs() {
     const latestDiv = document.getElementById("latest");
     const listDiv = document.getElementById("song-list");
     const searchInput = document.getElementById("search"); 
-    const topRight = document.getElementById("top-right");
 
     const songFolders = [
         "hirata_shiho/heartbeat_heartbreak"
@@ -75,32 +74,34 @@ async function loadSongs() {
     }
     animate();
 
+    //========================//
     // 音效預覽系統
+    //========================//
     const cards = document.querySelectorAll(".song-card");
     let currentAudio = null;
     const HOVER_DELAY = 200;
     let hoverTimeout = null;
+    let isMuted = false;
 
-    // 音量開關（頭像左邊）
-    let audioEnabled = true;
-    const avatar = topRight.querySelector("#about-btn img");
-
+    // 音量開關按鈕
+    const topRight = document.getElementById("top-right");
+    const avatar = document.getElementById("about-btn");
     const volumeToggle = document.createElement("img");
     volumeToggle.id = "volume-toggle";
-    volumeToggle.src = "images/on.png";
-    volumeToggle.alt = "音量開關";
-    volumeToggle.style.width = "32px";
-    volumeToggle.style.height = "32px";
+    volumeToggle.src = "images/on.png"; // 預設開啟
     volumeToggle.style.cursor = "pointer";
-    volumeToggle.style.marginRight = "8px"; // 頭像左邊
+
     topRight.insertBefore(volumeToggle, avatar);
 
     volumeToggle.addEventListener("click", () => {
-        audioEnabled = !audioEnabled;
-        volumeToggle.src = audioEnabled ? "images/on.png" : "images/off.png";
-        if (!audioEnabled && currentAudio) {
-            currentAudio.pause();
-            currentAudio = null;
+        isMuted = !isMuted;
+        volumeToggle.src = isMuted ? "images/off.png" : "images/on.png";
+        if (currentAudio) {
+            if (isMuted) {
+                currentAudio.pause();
+            } else {
+                currentAudio.play().catch(() => {});
+            }
         }
     });
 
@@ -114,18 +115,17 @@ async function loadSongs() {
             bgLayer.style.opacity = "1";
             visible = true;
 
-            // 停掉舊音效
             clearTimeout(hoverTimeout);
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio = null;
             }
 
-            hoverTimeout = setTimeout(() => {
-                if (!audioEnabled) return; // 靜音時不播放
+            if (isMuted) return;
 
+            hoverTimeout = setTimeout(() => {
                 currentAudio = new Audio(audioSrc);
-                currentAudio.volume = 0.4; // 音量可調整
+                currentAudio.volume = 0.2;
                 currentAudio.play().catch(() => {});
             }, HOVER_DELAY);
         });
@@ -147,7 +147,10 @@ async function loadSongs() {
         cards.forEach(card => {
             const title = card.querySelector("h3").textContent.toLowerCase();
             const artist = card.querySelector("p").textContent.toLowerCase();
-            card.style.display = title.includes(term) || artist.includes(term) ? "flex" : "none";
+            card.style.display =
+                title.includes(term) || artist.includes(term)
+                    ? "flex"
+                    : "none";
         });
     });
 }
