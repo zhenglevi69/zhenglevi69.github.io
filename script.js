@@ -77,7 +77,7 @@ async function loadSongs() {
     // 音效預覽系統
     const cards = document.querySelectorAll(".song-card");
     let currentAudio = null;
-    const HOVER_DELAY = 500;
+    const HOVER_DELAY = 200;
     let hoverTimeout = null;
 
     cards.forEach(card => {
@@ -99,6 +99,7 @@ async function loadSongs() {
 
             hoverTimeout = setTimeout(() => {
                 currentAudio = new Audio(audioSrc);
+                currentAudio.volume = 0.2;
                 currentAudio.play().catch(() => {});
             }, HOVER_DELAY);
         });
