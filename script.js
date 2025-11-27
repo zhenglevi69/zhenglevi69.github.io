@@ -74,12 +74,11 @@ async function loadSongs() {
     }
     animate();
 
-    // 音效預覽系統
+    // 音效預覽系統（hover 時自動播放）
     const cards = document.querySelectorAll(".song-card");
     let currentAudio = null;
     const HOVER_DELAY = 200;
     let hoverTimeout = null;
-    let isMuted = false;
 
     cards.forEach(card => {
         const cover = card.dataset.cover;
@@ -97,11 +96,9 @@ async function loadSongs() {
             }
 
             hoverTimeout = setTimeout(() => {
-                if (!isMuted) {
-                    currentAudio = new Audio(audioSrc);
-                    currentAudio.volume = 0.2;
-                    currentAudio.play().catch(() => {});
-                }
+                currentAudio = new Audio(audioSrc);
+                currentAudio.volume = 0.1;
+                currentAudio.play().catch(() => {});
             }, HOVER_DELAY);
         });
 
@@ -124,35 +121,6 @@ async function loadSongs() {
             const artist = card.querySelector("p").textContent.toLowerCase();
             card.style.display = title.includes(term) || artist.includes(term) ? "flex" : "none";
         });
-    });
-
-    // ===== 單一音量按鈕（頭像左邊） =====
-    const topRight = document.getElementById("top-right");
-    const avatar = document.getElementById("about-btn");
-
-    // 先刪除可能存在的舊按鈕
-    const oldToggle = document.getElementById("volume-toggle");
-    if (oldToggle) oldToggle.remove();
-
-    const volumeToggle = document.createElement("img");
-    volumeToggle.id = "volume-toggle";
-    volumeToggle.src = "images/on.png"; // 預設開啟
-    volumeToggle.style.width = "24px";
-    volumeToggle.style.height = "24px";
-    volumeToggle.style.cursor = "pointer";
-    volumeToggle.style.verticalAlign = "middle";
-    volumeToggle.style.marginRight = "8px"; // 與頭像間距
-
-    // 插入頭像左邊
-    topRight.insertBefore(volumeToggle, avatar);
-
-    volumeToggle.addEventListener("click", () => {
-        isMuted = !isMuted;
-        volumeToggle.src = isMuted ? "images/off.png" : "images/on.png";
-        if (currentAudio) {
-            if (isMuted) currentAudio.pause();
-            else currentAudio.play().catch(() => {});
-        }
     });
 }
 
