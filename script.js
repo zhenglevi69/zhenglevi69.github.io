@@ -99,8 +99,8 @@ async function loadSongs() {
                 let vol = 0;
                 const fadeIn = setInterval(() => {
                     vol += 0.05;
-                    if(vol >= 1) {
-                        vol = 1;
+                    if(vol >= 0.5) {
+                        vol = 0.5;
                         clearInterval(fadeIn);
                     }
                     audio.volume = vol;
@@ -118,7 +118,7 @@ async function loadSongs() {
                         audio.volume = vol;
                     }, 25);
                 }, 10000);
-            }, 1000);
+            }, 500);
         });
 
         card.addEventListener('mouseleave', () => {
