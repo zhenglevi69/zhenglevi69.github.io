@@ -82,6 +82,8 @@ async function loadSongs() {
 // ★ 音效播放系統（穩定升級版）★
 //=============//
 
+const cards = document.querySelectorAll(".song-card");
+
 let hoverDelayTimer = null;     // 延遲播放
 let fadeInTimer = null;         // 淡入
 let fadeOutTimer = null;        // 淡出
