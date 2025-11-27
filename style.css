@@ -3,41 +3,44 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;                   /* 滾動寬度 */
+    width: 200%;                   
     height: 100%;
-    background-size: contain;       /* 保持整張圖完整顯示 */
+    background-size: contain;       
     background-repeat: repeat-x;
     background-position: left center;
     z-index: -1;
     filter: brightness(0.2);
     pointer-events: none;
-    opacity: 0;                     /* 初始隱藏 */
-    transition: opacity 0.6s ease;  /* hover 淡入淡出 */
-    transform: translateX(0);       /* JS 控制 */
+    opacity: 0;                     
+    transition: opacity 0.6s ease;  
+    transform: translateX(0);       
 }
 
 /* 頁面 body 設置 */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;               /* 預設全黑 */
+    background: #111;               
     color: #fff;
     display: flex;
-    justify-content: center;        /* 首頁置中 */
+    justify-content: center;        
 }
 
 /* 中央內容框 */
 #container {
-    width: 1024px;                  /* 適配正方形背景比例 */
-    min-height: 1000px;              /* 固定比例 */
+    width: 1024px;                  
+    min-height: 1000px;             
     max-height: 1000px;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-    background: rgba(0,0,0,0.8);    /* 保護背景黑色 */
+    background: rgba(0,0,0,0.8);    
     z-index: 1;
     border: 2px solid #333;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* 搜尋欄置中 */
@@ -54,33 +57,61 @@ header {
     border: none;
 }
 
-/* 公告（最新翻譯） */
+/* 推薦翻譯卡片 */
 #latest {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    width: 80%;
+    max-width: 600px;
     background: #1c1c1c;
-    padding: 10px 15px;
+    padding: 20px;
     border: 2px solid #fff;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
     position: sticky;
     top: 20px;
     z-index: 10;
     cursor: pointer;
     color: #fff;
+    justify-content: flex-start;
+}
+
+#latest .label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff5555;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.85rem;
 }
 
 #latest img {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 #latest div {
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: #fff;
+}
+
+#latest h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+#latest p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
 }
 
 /* 歌曲卡片 */
@@ -97,7 +128,10 @@ header {
     text-decoration: none;
     color: #fff;
     backdrop-filter: blur(4px);
-    transition: transform 0.2s; /* 移除背景變透明 */
+    transition: transform 0.2s;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 15px;
 }
 
 .song-card img {
@@ -113,7 +147,7 @@ header {
 
 /* hover效果 */
 .song-card:hover {
-    transform: scale(1.02); /* 不改變背景透明度 */
+    transform: scale(1.02); 
 }
 
 /* 單首歌頁面保持不變 */
@@ -189,7 +223,7 @@ body.single-song, body.single-song * {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 20; /* 確保在 container 上方 */
+    z-index: 20; 
 }
 
 #about-btn img {
@@ -204,4 +238,3 @@ body.single-song, body.single-song * {
 #about-btn img:hover {
     transform: scale(1.1);
 }
-
