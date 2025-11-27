@@ -41,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 /* 搜尋欄置中 */
@@ -240,9 +241,9 @@ body.single-song, body.single-song * {
 
 /* 返回首頁按鈕 */
 #back-home {
-  position: fixed;
-  left: 20px;
-  top: 20px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
   z-index: 9999;
   opacity: 0.9;
   transition: opacity 0.2s;
