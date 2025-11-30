@@ -3,38 +3,38 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200%;                   
+    width: 200%;
     height: 100%;
-    background-size: contain;       
+    background-size: contain;
     background-repeat: repeat-x;
     background-position: left center;
     z-index: -1;
     filter: brightness(0.2);
     pointer-events: none;
-    opacity: 0;                     
-    transition: opacity 0.6s ease;  
-    transform: translateX(0);       
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    transform: translateX(0);
 }
 
 /* body 設置 */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #111;               
+    background: #111;
     color: #fff;
     display: flex;
-    justify-content: center;        
+    justify-content: center;
 }
 
 /* 中央內容框 */
 #container {
-    width: 1024px;                  
-    min-height: 1000px;             
+    width: 1024px;
+    min-height: 1000px;
     max-height: 1000px;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
-    background: rgba(0,0,0,0.8);    
+    background: rgba(0,0,0,0.8);
     z-index: 1;
     border: 2px solid #333;
     border-radius: 12px;
@@ -115,42 +115,68 @@ header {
     font-size: 1rem;
 }
 
+/* ======================================== */
+/*              所有翻譯卡片（新版）        */
+/* ======================================== */
+
+#song-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 一排兩個 */
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
 .song-card {
-    position: relative;
-    z-index: 1;
     display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px;
-    background: rgba(0,0,0,0.5);
-    border: 2px solid #fff;
+    flex-direction: row;
+    width: 100%;
+    max-width: 430px; /* 靠這個控制兩欄 */
+    height: 180px;
+    background: #1a1a1a;  /* 深灰底 */
+    border: 2px solid #333; /* 深灰邊框 */
     border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
     text-decoration: none;
     color: #fff;
-    backdrop-filter: blur(4px);
     transition: transform 0.2s;
-    width: 900px;       /* 固定寬度 */
-    height: 100px;      /* 固定高度 */
-    margin: 0 auto 15px; /* 置中並保留底部間距 */
+}
+
+.song-card:hover {
+    transform: translateY(-4px);
 }
 
 .song-card img {
-    width: 60px;
-    height: 60px;
+    width: 45%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 5px;
 }
 
 .song-card div {
-    text-align: left;
+    width: 55%;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* hover效果 */
-.song-card:hover {
-    transform: scale(1.02); 
+.song-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
 }
 
-/* 單首歌頁面保持不變 */
+.song-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* ======================================== */
+/*             單首歌頁面維持原樣           */
+/* ======================================== */
+
 body.single-song {
     display: block;
     background: #111 !important;
@@ -223,7 +249,7 @@ body.single-song, body.single-song * {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 20; 
+    z-index: 20;
 }
 
 #about-btn img {
