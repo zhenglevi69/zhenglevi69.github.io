@@ -1,0 +1,22 @@
+{
+  "title": "Something About Us",
+  "artist": "Daft Punk",
+  "album": "Discovery", 
+  "cover": "cover.jpg",
+  "spotify": "https://open.spotify.com/embed/track/1NeLwFETswx8Fzxl2AFl91?utm_source=generator",
+  "lyrics": [
+    { "og": "It might not be the right time", "zh": "這也許不是對的時機" },
+    { "og": "I might not be the right one", "zh": "我也許不是對的人" },
+    { "og": "But there's something about us I want to say", "zh": "但有些我們之間的事，我想說說" },
+    { "og": "'Cause there's something between us anyway", "zh": "反正我們之間本來就有些什麼" },
+    { "og": "I might not be the right one", "zh": "我也許不是對的人" },
+    { "og": "It might not be the right time", "zh": "這也許不是對的時機" },
+    { "og": "But there's something about us I've got to do", "zh": "但有些我們之間的事，我必須做" },
+    { "og": "Some kind of secret I will share with you", "zh": "我想和妳分享某個秘密" },
+    { "og": "I need you more than anything in my life", "zh": "比起我人生中的其他一切，我更需要妳" },
+    { "og": "I want you more than anything in my life", "zh": "比起我人生中的其他一切，我更想要妳" },
+    { "og": "I'll miss you more than anyone in my life", "zh": "比起我生命中的其他人，我會更想念妳" },
+    { "og": "I love you more than anyone in my life", "zh": "比起我生命中的其他人，我更愛妳" }
+  ],
+  "notes": "測試翻譯2"
+}
