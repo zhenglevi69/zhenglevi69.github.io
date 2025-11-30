@@ -3,48 +3,41 @@ async function loadSongs() {
     const listDiv = document.getElementById("song-list");
     const searchInput = document.getElementById("search");
 
-    const songFolders = [
-        "hirata_shiho/heartbeat_heartbreak"
-    ];
-
-    const songs = [];
-
-    for (const folder of songFolders) {
-        try {
-            const res = await fetch(`songs/${folder}/data.json`);
-            const data = await res.json();
-            data.folder = folder;
-            songs.push(data);
-        } catch (err) {
-            console.error(`Failed to load ${folder}`, err);
-        }
+    // 讀取外層 songs.json
+    let songs = [];
+    try {
+        const res = await fetch('songs.json');
+        songs = await res.json();
+    } catch (err) {
+        console.error('Failed to load songs.json', err);
+        return;
     }
 
     if (!songs.length) return;
 
-    // 日期排序
+    // 日期排序（若有 date 欄位）
     songs.sort((a, b) => (a.date && b.date) ? new Date(b.date) - new Date(a.date) : 0);
 
     // 推薦歌曲（第一首）
     const latest = songs[0];
     latestDiv.innerHTML = `
         <div class="label">推薦翻譯</div>
-        <img src="songs/${latest.folder}/${latest.cover}" alt="${latest.title}">
+        <img src="${latest.cover}" alt="${latest.title}">
         <div>
             <h3>${latest.title}</h3>
             <p>${latest.artist}</p>
         </div>
     `;
     latestDiv.onclick = () => {
-        window.location.href = `songs/${latest.folder}/index.html`;
+        window.location.href = `${latest.folder}/index.html`;
     };
 
     // 清單卡片
     listDiv.innerHTML = songs.map(song => `
-        <a class="song-card" href="songs/${song.folder}/index.html"
-           data-cover="songs/${song.folder}/${song.cover}"
-           data-audio="songs/${song.folder}/audio.mp3">
-            <img src="songs/${song.folder}/${song.cover}" alt="${song.title}">
+        <a class="song-card" href="${song.folder}/index.html"
+           data-cover="${song.cover}"
+           data-audio="${song.folder}/audio.mp3">
+            <img src="${song.cover}" alt="${song.title}">
             <div>
                 <h3>${song.title}</h3>
                 <p>${song.artist}</p>
