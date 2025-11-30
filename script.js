@@ -22,10 +22,10 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    // 按日期排序
+    // 日期排序
     songs.sort((a, b) => (a.date && b.date) ? new Date(b.date) - new Date(a.date) : 0);
 
-    // 推薦歌曲
+    // 推薦歌曲（第一首）
     const latest = songs[0];
     latestDiv.innerHTML = `
         <div class="label">推薦翻譯</div>
@@ -39,7 +39,7 @@ async function loadSongs() {
         window.location.href = `songs/${latest.folder}/index.html`;
     };
 
-    // 生成歌曲卡片
+    // 清單卡片
     listDiv.innerHTML = songs.map(song => `
         <a class="song-card" href="songs/${song.folder}/index.html"
            data-cover="songs/${song.folder}/${song.cover}"
@@ -52,7 +52,7 @@ async function loadSongs() {
         </a>
     `).join("");
 
-    // 背景層 + 滾動動畫
+    // 背景層（如果不存在就建立）
     let bgLayer = document.getElementById("bg-layer");
     if (!bgLayer) {
         bgLayer = document.createElement("div");
@@ -60,6 +60,7 @@ async function loadSongs() {
         document.body.appendChild(bgLayer);
     }
 
+    // 背景滾動動畫
     let scrollX = 0;
     let visible = false;
     const speed = 0.3;
@@ -74,7 +75,7 @@ async function loadSongs() {
     }
     animate();
 
-    // 音效預覽系統（hover 時自動播放）
+    // hover 音效預覽
     const cards = document.querySelectorAll(".song-card");
     let currentAudio = null;
     const HOVER_DELAY = 200;
@@ -113,7 +114,7 @@ async function loadSongs() {
         });
     });
 
-    // 搜尋功能
+    // 搜尋
     searchInput.addEventListener("input", () => {
         const term = searchInput.value.toLowerCase();
         cards.forEach(card => {
