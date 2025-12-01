@@ -178,10 +178,7 @@ header {
 /* ======================================== */
 
 body.single-song {
-    /* [修正置中問題] 移除 margin-right 或 padding-right */
-    margin-right: 0; 
-    padding-right: 0;
-    /* 讓 body 成為標準區塊，讓 #container 的 margin: auto 生效 */
+    /* 確保 #container 的 margin: auto 能正確置中 */
     display: block; 
     background: #111 !important;
     padding: 0;
@@ -189,34 +186,33 @@ body.single-song {
 }
 
 body.single-song #container {
-    /* [修正置中問題] 讓 margin: 0 auto; 能夠正確置中 */
-    width: 900px; /* 保持歌詞閱讀寬度 */
+    width: 900px; 
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; 
     background: #111 !important;
-    margin: 0 auto; /* 置中 */
+    margin: 0 auto; 
     border: none; 
     border-radius: 0; 
     
-    /* 為了讓左側內容靠左對齊 */
-    align-items: flex-start; 
+    /* [修正 1] 確保 #content (容器子元素) 在 #container 內置中 */
+    align-items: center; 
 }
 
 /* -------------------------------------- */
-/* 刪除所有關於 #notes-sidebar 的樣式 */
+/* 內嵌注釋區塊 */
 /* -------------------------------------- */
-/* 重新定義內嵌注釋區塊的樣式 */
 body.single-song .notes {
     margin-top: 50px;
     padding: 20px;
-    background: #222; /* 比主體略深的背景色 */
+    background: #222; 
     border-radius: 10px;
-    white-space: pre-wrap; /* 保持換行格式 */
-    text-align: left; /* 靠左對齊 */
+    white-space: pre-wrap; 
+    /* [修正 2] 內嵌注釋文本置中 */
+    text-align: center; 
     line-height: 1.6;
-    width: 100%; /* 佔滿 #content 的寬度 */
+    width: 100%; 
     box-sizing: border-box;
 }
 
@@ -226,9 +222,11 @@ body.single-song .header {
     display: flex;
     gap: 30px; 
     align-items: center;
-    justify-content: flex-start; /* 靠左對齊 */
+    /* [修正 3] 標題區塊內的元素置中 (封面 + 標題/播放器) */
+    justify-content: center; 
     flex-wrap: wrap;
-    text-align: left;
+    /* 確保標題/歌手的文本置中 */
+    text-align: center; 
     margin-bottom: 40px;
 }
 
@@ -241,12 +239,14 @@ body.single-song .header img {
 
 body.single-song .lyrics {
     margin-top: 20px;
-    text-align: left; 
+    /* [修正 4] 歌詞區塊文本置中 */
+    text-align: center; 
 }
 
 body.single-song .line {
     display: block;
-    text-align: left; 
+    /* [修正 5] 歌詞行文本置中 */
+    text-align: center; 
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #333;
@@ -273,7 +273,7 @@ body.single-song, body.single-song * {
 
 
 /* ======================================== */
-/* 滾動條樣式調整 (只保留 #container 的)        */
+/* 滾動條樣式調整 (保持灰色)        */
 /* ======================================== */
 
 /* 適用於 WebKit (Chrome, Safari, Edge) 瀏覽器 */
