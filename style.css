@@ -26,7 +26,7 @@ body {
     justify-content: center;
 }
 
-/* 中央內容框 */
+/* 中央內容框 (主頁) */
 #container {
     width: 1000px;
     min-height: 1000px;
@@ -116,7 +116,7 @@ header {
 }
 
 /* ======================================== */
-/*              所有翻譯卡片（新版）        */
+/* 所有翻譯卡片（新版）        */
 /* ======================================== */
 
 #song-list {
@@ -174,52 +174,104 @@ header {
 }
 
 /* ======================================== */
-/*             單首歌頁面維持原樣           */
+/* 單首歌頁面調整 (START)        */
 /* ======================================== */
 
 body.single-song {
-    display: block;
+    /* 移除 display: block;，讓 #container 和 #notes-sidebar 可以並排或固定 */
+    display: flex;
+    justify-content: flex-start; /* 內容靠左 */
     background: #111 !important;
+    padding-right: 350px; /* 預留右側注釋欄的空間 */
 }
 
 body.single-song #container {
-    width: 900px;
+    /* 調整為適合歌詞閱讀的寬度，並確保有最大寬度 */
+    width: 900px; 
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow-y: auto; /* 歌詞和主要內容區可以滾動 */
     background: #111 !important;
     margin: 0 auto;
+    border: none; /* 移除外框 */
+    border-radius: 0; /* 移除圓角 */
+    
+    /* 為了讓左側內容靠左對齊 */
+    align-items: flex-start; 
 }
+
+/* 新增：右側固定注釋欄樣式 */
+#notes-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* 注釋欄寬度 */
+    height: 100vh;
+    background: #0d0d0d; /* 更深的背景色，與 #container 區分 */
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* 獨立滾動！ */
+    border-left: 1px solid #333; /* 邊界線 */
+    z-index: 100;
+}
+
+.notes-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff5555; /* 使用強調色 */
+    text-align: center;
+    position: sticky; /* 標題固定在側邊欄頂部 */
+    top: 0;
+    background: #0d0d0d;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+
+#notes-content {
+    /* 保持預設的 pre-wrap 效果，但允許文本靠左顯示 */
+    white-space: pre-wrap;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* 單曲頁面內容區樣式微調 */
 
 body.single-song .header {
     display: flex;
-    gap: 20px;
+    gap: 30px; /* 增加間距 */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* 靠左對齊 */
     flex-wrap: wrap;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 40px;
 }
 
 body.single-song .header img {
-    width: 200px !important;
-    height: 200px !important;
+    width: 150px !important;
+    height: 150px !important;
     object-fit: cover;
     border-radius: 10px;
 }
 
 body.single-song .lyrics {
-    margin-top: 40px;
-    text-align: center;
+    margin-top: 20px;
+    text-align: left; /* 歌詞靠左 */
 }
 
 body.single-song .line {
     display: block;
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: left; /* 歌詞行靠左 */
+    margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #333;
 }
+
+/* 移除原本的 .notes 樣式，因為內容已經移到 #notes-content */
+/* body.single-song .notes { ... } 舊樣式已刪除 */
+
 
 body.single-song .og {
     font-size: 1.1rem;
@@ -229,22 +281,18 @@ body.single-song .og {
 body.single-song .zh {
     font-size: 1.2rem;
     margin-top: 5px;
-}
-
-body.single-song .notes {
-    margin-top: 50px;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-    white-space: pre-wrap;
-    text-align: center;
+    font-weight: bold;
 }
 
 body.single-song, body.single-song * {
     color: #fff !important;
 }
 
-/* 右上角固定按鈕 */
+/* ======================================== */
+/* 單首歌頁面調整 (END)          */
+/* ======================================== */
+
+/* 右上角固定按鈕 (未動) */
 #top-right {
     position: fixed;
     top: 20px;
@@ -265,7 +313,7 @@ body.single-song, body.single-song * {
     transform: scale(1.1);
 }
 
-/* 返回首頁按鈕 */
+/* 返回首頁按鈕 (未動) */
 #back-home {
     position: absolute;
     left: 10px;
