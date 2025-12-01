@@ -3,7 +3,7 @@ async function loadSongs() {
     const listDiv = document.getElementById("song-list");
     const searchInput = document.getElementById("search");
 
-    // 讀取外層 songs.json
+    // 讀取 songs.json
     let songs = [];
     try {
         const res = await fetch('songs.json');
@@ -15,10 +15,10 @@ async function loadSongs() {
 
     if (!songs.length) return;
 
-    // 日期排序（若有 date 欄位）
+    // 日期排序
     songs.sort((a, b) => (a.date && b.date) ? new Date(b.date) - new Date(a.date) : 0);
 
-    // 推薦歌曲（第一首）
+    // 推薦翻譯（大卡片）
     const latest = songs[0];
     latestDiv.innerHTML = `
         <div class="label">推薦翻譯</div>
@@ -32,8 +32,11 @@ async function loadSongs() {
         window.location.href = `${latest.folder}/index.html`;
     };
 
-    // 清單卡片
-    listDiv.innerHTML = songs.map(song => `
+    // 所有翻譯卡片
+    const cardHTML = songs.map((song, index) => {
+        // 第一首是推薦翻譯，不重複顯示
+        if(index === 0) return '';
+        return `
         <a class="song-card" href="${song.folder}/index.html"
            data-cover="${song.cover}"
            data-audio="${song.folder}/audio.mp3">
@@ -43,9 +46,11 @@ async function loadSongs() {
                 <p>${song.artist}</p>
             </div>
         </a>
-    `).join("");
+        `;
+    }).join('');
+    listDiv.innerHTML = cardHTML;
 
-    // 背景層（如果不存在就建立）
+    // 背景層滾動
     let bgLayer = document.getElementById("bg-layer");
     if (!bgLayer) {
         bgLayer = document.createElement("div");
@@ -53,7 +58,6 @@ async function loadSongs() {
         document.body.appendChild(bgLayer);
     }
 
-    // 背景滾動動畫
     let scrollX = 0;
     let visible = false;
     const speed = 0.3;
@@ -107,7 +111,7 @@ async function loadSongs() {
         });
     });
 
-    // 搜尋
+    // 搜尋功能
     searchInput.addEventListener("input", () => {
         const term = searchInput.value.toLowerCase();
         cards.forEach(card => {
