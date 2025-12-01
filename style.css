@@ -182,7 +182,8 @@ body.single-song {
     display: flex;
     justify-content: flex-start; /* 內容靠左 */
     background: #111 !important;
-    padding-right: 350px; /* 預留右側注釋欄的空間 */
+    /* [修改 1: 預留空間改為 320px = 300px(注釋欄) + 20px(間距)] */
+    padding-right: 320px; 
 }
 
 body.single-song #container {
@@ -193,9 +194,9 @@ body.single-song #container {
     box-sizing: border-box;
     overflow-y: auto; /* 歌詞和主要內容區可以滾動 */
     background: #111 !important;
-    margin: 0 auto;
-    border: none; /* 移除外框 */
-    border-radius: 0; /* 移除圓角 */
+    margin: 0 auto; /* 確保在可用空間內置中 */
+    border: none; 
+    border-radius: 0; 
     
     /* 為了讓左側內容靠左對齊 */
     align-items: flex-start; 
@@ -269,10 +270,6 @@ body.single-song .line {
     border-bottom: 1px solid #333;
 }
 
-/* 移除原本的 .notes 樣式，因為內容已經移到 #notes-content */
-/* body.single-song .notes { ... } 舊樣式已刪除 */
-
-
 body.single-song .og {
     font-size: 1.1rem;
     color: #bbb;
@@ -291,6 +288,40 @@ body.single-song, body.single-song * {
 /* ======================================== */
 /* 單首歌頁面調整 (END)          */
 /* ======================================== */
+
+
+/* ======================================== */
+/* [修改 2: 滾動條樣式調整]        */
+/* ======================================== */
+
+/* 適用於 WebKit (Chrome, Safari, Edge) 瀏覽器 */
+
+/* 滾動條整體 */
+#container::-webkit-scrollbar,
+#notes-sidebar::-webkit-scrollbar {
+    width: 8px; /* 垂直滾動條寬度 */
+    height: 8px; /* 水平滾動條高度 */
+}
+
+/* 滾動條軌道 (背景) */
+#container::-webkit-scrollbar-track,
+#notes-sidebar::-webkit-scrollbar-track {
+    background: #222; /* 深灰色背景 */
+    border-radius: 10px;
+}
+
+/* 滾動條滑塊 (灰色) */
+#container::-webkit-scrollbar-thumb,
+#notes-sidebar::-webkit-scrollbar-thumb {
+    background: #888; /* 灰色滑塊 */
+    border-radius: 10px;
+}
+
+#container::-webkit-scrollbar-thumb:hover,
+#notes-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #aaa; /* 懸停時略亮 */
+}
+
 
 /* 右上角固定按鈕 (未動) */
 #top-right {
