@@ -5,15 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Song Translation</title>
   <link rel="stylesheet" href="/style.css">
-</head>
-<body class="single-song">
+  <style>
+    /* ====== 右側注釋欄 ====== */
+    #notes-panel {
+      position: absolute;
+      right: -320px;       /* 靠右側外推，不佔原本 layout */
+      top: 0;
+      width: 300px;
+      height: 100%;
+      background: #222;
+      border-left: 2px solid #333;
+      padding: 20px;
+      overflow-y: auto;
+      border-radius: 0 10px 10px 0;
+    }
 
+    /* lyrics + header 區域往左擠出空間 */
+    #content-wrapper {
+      width: calc(100% - 320px);
+    }
+  </style>
+</head>
+
+<body class="single-song">
 
 <div id="container">
 
   <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
-  
-  <div id="content">Loading...</div>
+
+  <!-- 包住 header + lyrics -->
+  <div id="content-wrapper">
+    <div id="content">Loading...</div>
+  </div>
+
+  <!-- 右側注釋欄 -->
+  <div id="notes-panel">載入中...</div>
+
 </div>
 
 <script>
@@ -21,6 +48,8 @@ async function loadData() {
   const response = await fetch("data.json");
   const data = await response.json();
   document.title = `${data.title} - ${data.artist}`;
+
+  // 左側主要內容（封面、標題、歌詞）
   const html = `
     <div class="header">
       <img src="${data.cover}">
@@ -30,6 +59,7 @@ async function loadData() {
         ${data.spotify ? `<iframe src="${data.spotify}" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>` : ""}
       </div>
     </div>
+
     <div class="lyrics">
       ${data.lyrics.map(line => `
         <div class="line">
@@ -38,10 +68,14 @@ async function loadData() {
         </div>
       `).join("")}
     </div>
-    <div class="notes">${data.notes || ""}</div>
   `;
   document.getElementById("content").innerHTML = html;
+
+  // 右側注釋面板
+  document.getElementById("notes-panel").innerHTML =
+    data.notes ? data.notes : "（無注釋）";
 }
+
 loadData();
 </script>
 
