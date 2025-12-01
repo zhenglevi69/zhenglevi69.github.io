@@ -178,23 +178,25 @@ header {
 /* ======================================== */
 
 body.single-song {
-    /* 移除 display: block;，讓 #container 和 #notes-sidebar 可以並排或固定 */
-    display: flex;
-    justify-content: flex-start; /* 內容靠左 */
+    /* [重要修改 1: 變回區塊佈局，以利 margin: auto 置中] */
+    display: block; 
     background: #111 !important;
-    /* [修改 1: 預留空間改為 320px = 300px(注釋欄) + 20px(間距)] */
+    /* [間距調整: 300px(注釋欄) + 20px(間距)] */
     padding-right: 320px; 
+    /* 確保 body 至少滿版，允許滾動 */
+    min-height: 100vh;
 }
 
 body.single-song #container {
-    /* 調整為適合歌詞閱讀的寬度，並確保有最大寬度 */
+    /* 調整為適合歌詞閱讀的寬度，維持 900px */
     width: 900px; 
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; /* 歌詞和主要內容區可以滾動 */
     background: #111 !important;
-    margin: 0 auto; /* 確保在可用空間內置中 */
+    /* [重要修改 2: 這裡的 margin: 0 auto; 現在能正確在剩餘空間內置中] */
+    margin: 0 auto; 
     border: none; 
     border-radius: 0; 
     
@@ -291,7 +293,7 @@ body.single-song, body.single-song * {
 
 
 /* ======================================== */
-/* [修改 2: 滾動條樣式調整]        */
+/* 滾動條樣式調整 (未修改，保留上次的灰色設定) */
 /* ======================================== */
 
 /* 適用於 WebKit (Chrome, Safari, Edge) 瀏覽器 */
