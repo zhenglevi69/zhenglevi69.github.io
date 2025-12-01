@@ -178,12 +178,15 @@ header {
 /* ======================================== */
 
 body.single-song {
-    /* [重要修改 1: 變回區塊佈局，以利 margin: auto 置中] */
+    /* [重要修改 1: 將 padding-right 改為 margin-right] */
+    /* 使用 margin-right 隔離出右側空間，確保 #container 在正確的流動空間中置中。
+       300px (注釋欄寬) + 20px (間距) = 320px */
+    margin-right: 320px; 
+    
+    /* 保持 block 佈局以支持 margin auto */
     display: block; 
     background: #111 !important;
-    /* [間距調整: 300px(注釋欄) + 20px(間距)] */
-    padding-right: 320px; 
-    /* 確保 body 至少滿版，允許滾動 */
+    padding: 0; /* 移除 padding 確保乾淨計算 */
     min-height: 100vh;
 }
 
@@ -193,9 +196,9 @@ body.single-song #container {
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto; /* 歌詞和主要內容區可以滾動 */
+    overflow-y: auto; 
     background: #111 !important;
-    /* [重要修改 2: 這裡的 margin: 0 auto; 現在能正確在剩餘空間內置中] */
+    /* [重要修改 2: margin: 0 auto; 現在能在縮小的 body 空間中正確置中] */
     margin: 0 auto; 
     border: none; 
     border-radius: 0; 
@@ -204,21 +207,22 @@ body.single-song #container {
     align-items: flex-start; 
 }
 
-/* 新增：右側固定注釋欄樣式 */
+/* 新增：右側固定注釋欄樣式 (RIGHT: 0 保持不變，它會貼在視窗邊緣) */
 #notes-sidebar {
     position: fixed;
     top: 0;
     right: 0;
     width: 300px; /* 注釋欄寬度 */
     height: 100vh;
-    background: #0d0d0d; /* 更深的背景色，與 #container 區分 */
+    background: #0d0d0d; 
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; /* 獨立滾動！ */
-    border-left: 1px solid #333; /* 邊界線 */
+    border-left: 1px solid #333; 
     z-index: 100;
 }
+
 
 .notes-header {
     font-size: 1.5rem;
@@ -290,13 +294,6 @@ body.single-song, body.single-song * {
 /* ======================================== */
 /* 單首歌頁面調整 (END)          */
 /* ======================================== */
-
-
-/* ======================================== */
-/* 滾動條樣式調整 (未修改，保留上次的灰色設定) */
-/* ======================================== */
-
-/* 適用於 WebKit (Chrome, Safari, Edge) 瀏覽器 */
 
 /* 滾動條整體 */
 #container::-webkit-scrollbar,
