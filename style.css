@@ -183,49 +183,73 @@ body.single-song {
     background: #111 !important;
     padding: 0;
     min-height: 100vh;
+    /* [修改 1] 使用 margin-right 保留右側注釋欄空間 (300px + 20px 間距) */
+    margin-right: 320px; 
 }
 
 body.single-song #container {
-    width: 900px; 
+    /* [修改 2] 縮小寬度並保持置中 */
+    width: 700px; 
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; 
     background: #111 !important;
-    margin: 0 auto; 
+    margin: 0 auto; /* 置中 */
     border: none; 
     border-radius: 0; 
     
-    /* [修正 1] 確保 #content (容器子元素) 在 #container 內置中 */
+    /* 為了讓內容（#content）在 #container 內置中 */
     align-items: center; 
 }
 
-/* -------------------------------------- */
-/* 內嵌注釋區塊 */
-/* -------------------------------------- */
-body.single-song .notes {
-    margin-top: 50px;
+/* [修改 3] 新增：右側固定注釋欄樣式 */
+#notes-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* 注釋欄寬度 */
+    height: 100vh;
+    background: #0d0d0d; /* 更深的背景色，與 #container 區分 */
+    color: #fff;
     padding: 20px;
-    background: #222; 
-    border-radius: 10px;
-    white-space: pre-wrap; 
-    /* [修正 2] 內嵌注釋文本置中 */
-    text-align: center; 
-    line-height: 1.6;
-    width: 100%; 
     box-sizing: border-box;
+    overflow-y: auto; /* 獨立滾動！ */
+    border-left: 1px solid #333; /* 邊界線 */
+    z-index: 100;
 }
 
-/* 單曲頁面內容區樣式微調 */
+.notes-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff5555; /* 使用強調色 */
+    text-align: center;
+    position: sticky; /* 標題固定在側邊欄頂部 */
+    top: 0;
+    background: #0d0d0d;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+
+#notes-content {
+    white-space: pre-wrap;
+    text-align: left; /* 注釋內容通常靠左閱讀體驗較好 */
+    line-height: 1.8;
+}
+
+/* [修改 4] 移除原有的 .notes 內嵌注釋樣式 */
+/* body.single-song .notes { ... } */
+
+
+/* 單曲頁面內容區樣式微調 (保持置中) */
 
 body.single-song .header {
     display: flex;
     gap: 30px; 
     align-items: center;
-    /* [修正 3] 標題區塊內的元素置中 (封面 + 標題/播放器) */
-    justify-content: center; 
+    justify-content: center; /* 置中 */
     flex-wrap: wrap;
-    /* 確保標題/歌手的文本置中 */
     text-align: center; 
     margin-bottom: 40px;
 }
@@ -239,14 +263,12 @@ body.single-song .header img {
 
 body.single-song .lyrics {
     margin-top: 20px;
-    /* [修正 4] 歌詞區塊文本置中 */
-    text-align: center; 
+    text-align: center; /* 歌詞置中 */
 }
 
 body.single-song .line {
     display: block;
-    /* [修正 5] 歌詞行文本置中 */
-    text-align: center; 
+    text-align: center; /* 歌詞行置中 */
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 1px solid #333;
@@ -273,30 +295,34 @@ body.single-song, body.single-song * {
 
 
 /* ======================================== */
-/* 滾動條樣式調整 (保持灰色)        */
+/* 滾動條樣式調整 ( #container 和 #notes-sidebar 都需設置灰色) */
 /* ======================================== */
 
 /* 適用於 WebKit (Chrome, Safari, Edge) 瀏覽器 */
 
 /* 滾動條整體 */
-#container::-webkit-scrollbar {
+#container::-webkit-scrollbar,
+#notes-sidebar::-webkit-scrollbar {
     width: 8px; /* 垂直滾動條寬度 */
     height: 8px; /* 水平滾動條高度 */
 }
 
 /* 滾動條軌道 (背景) */
-#container::-webkit-scrollbar-track {
+#container::-webkit-scrollbar-track,
+#notes-sidebar::-webkit-scrollbar-track {
     background: #222; /* 深灰色背景 */
     border-radius: 10px;
 }
 
 /* 滾動條滑塊 (灰色) */
-#container::-webkit-scrollbar-thumb {
+#container::-webkit-scrollbar-thumb,
+#notes-sidebar::-webkit-scrollbar-thumb {
     background: #888; /* 灰色滑塊 */
     border-radius: 10px;
 }
 
-#container::-webkit-scrollbar-thumb:hover {
+#container::-webkit-scrollbar-thumb:hover,
+#notes-sidebar::-webkit-scrollbar-thumb:hover {
     background: #aaa; /* 懸停時略亮 */
 }
 
