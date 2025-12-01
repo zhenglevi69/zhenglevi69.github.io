@@ -1,45 +1,28 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Song Translation</title>
   <link rel="stylesheet" href="/style.css">
-  <style>
-    /* ====== 右側注釋欄 ====== */
-    #notes-panel {
-      position: absolute;
-      right: -320px;       /* 靠右側外推，不佔原本 layout */
-      top: 0;
-      width: 300px;
-      height: 100%;
-      background: #222;
-      border-left: 2px solid #333;
-      padding: 20px;
-      overflow-y: auto;
-      border-radius: 0 10px 10px 0;
-    }
-
-    /* lyrics + header 區域往左擠出空間 */
-    #content-wrapper {
-      width: calc(100% - 320px);
-    }
-  </style>
 </head>
 
 <body class="single-song">
 
 <div id="container">
 
+  <!-- 返回首頁 -->
   <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
 
-  <!-- 包住 header + lyrics -->
-  <div id="content-wrapper">
+  <!-- 左側內容（封面 + 歌詞） -->
+  <div class="left-panel">
     <div id="content">Loading...</div>
   </div>
 
-  <!-- 右側注釋欄 -->
-  <div id="notes-panel">載入中...</div>
+  <!-- 右側注釋 -->
+  <div class="notes-panel" id="notes-panel">
+    載入中...
+  </div>
 
 </div>
 
@@ -69,9 +52,10 @@ async function loadData() {
       `).join("")}
     </div>
   `;
+
   document.getElementById("content").innerHTML = html;
 
-  // 右側注釋面板
+  // 右側注釋
   document.getElementById("notes-panel").innerHTML =
     data.notes ? data.notes : "（無注釋）";
 }
