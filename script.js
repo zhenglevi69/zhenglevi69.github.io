@@ -68,44 +68,71 @@ async function loadSongs() {
     }  
     animate();  
 
-    // hover 音效預覽  
+    // hover 音效預覽 (修改區域開始)
     const cards = document.querySelectorAll(".song-card");  
     let currentAudio = null;  
     const HOVER_DELAY = 200;  
+    const PLAYBACK_DURATION = 10000; // 新增：10秒播放時長 (10000ms)
     let hoverTimeout = null;  
+    let playbackTimer = null; // 新增：用於控制 10 秒播放的計時器
 
     cards.forEach(card => {  
         const cover = card.dataset.cover;  
         const audioSrc = card.dataset.audio;  
 
         card.addEventListener("pointerenter", () => {  
+            // 視覺效果部分
             bgLayer.style.backgroundImage = `url('${cover}')`;  
             bgLayer.style.opacity = "1";  
             visible = true;  
 
+            // 清除現有的計時器和音頻
             clearTimeout(hoverTimeout);  
+            clearTimeout(playbackTimer); // 進入時清除播放計時器
+
             if (currentAudio) {  
                 currentAudio.pause();  
                 currentAudio = null;  
             }  
 
+            // 啟動 Hover 延遲計時器
             hoverTimeout = setTimeout(() => {  
                 currentAudio = new Audio(audioSrc);  
                 currentAudio.volume = 0.1;  
-                currentAudio.play().catch(() => {});  
+                
+                currentAudio.play().then(() => {
+                    // 播放成功後，設置 10 秒後自動停止的計時器
+                    playbackTimer = setTimeout(() => {
+                        if (currentAudio) {
+                            currentAudio.pause();
+                            currentAudio = null;
+                        }
+                    }, PLAYBACK_DURATION);
+                }).catch(() => {
+                    // 處理播放錯誤 (例如文件不存在)
+                    console.warn(`無法播放音頻: ${audioSrc}`);
+                });
+
             }, HOVER_DELAY);  
         });  
 
         card.addEventListener("pointerleave", () => {  
+            // 清除所有計時器
             clearTimeout(hoverTimeout);  
+            clearTimeout(playbackTimer); // 離開時清除播放計時器
+
+            // 停止音頻
             if (currentAudio) {  
                 currentAudio.pause();  
                 currentAudio = null;  
             }  
+            
+            // 視覺效果部分
             bgLayer.style.opacity = "0";  
             visible = false;  
         });  
     });  
+    // hover 音效預覽 (修改區域結束)
 
     // 搜尋  
     searchInput.addEventListener("input", () => {  
