@@ -16,7 +16,7 @@
     transform: translateX(0);
 }
 
-/* body 設置 */
+/* body 設置 (定義基礎 Flex 佈局) */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@ body {
     justify-content: center;
 }
 
-/* 中央內容框 (主頁) */
+/* 中央內容框 (主頁 - 供首頁使用) */
 #container {
     width: 1000px;
     min-height: 1000px;
@@ -178,44 +178,45 @@ header {
 /* ======================================== */
 
 body.single-song {
-    /* 確保 #container 的 margin: auto 能正確置中 */
-    display: block; 
+    /* [修正 1] 移除 display: block; 繼承 body 的 display: flex; 和 justify-content: center; */
+    /* display: flex; 且 justify-content: center; */ 
     background: #111 !important;
     padding: 0;
     min-height: 100vh;
-    /* [修改 1] 使用 margin-right 保留右側注釋欄空間 (300px + 20px 間距) */
+    /* 保留 margin-right 預留右側空間 (300px + 20px 間距) */
     margin-right: 320px; 
 }
 
 body.single-song #container {
-    /* [修改 2] 縮小寬度並保持置中 */
+    /* 保持縮小後的寬度 */
     width: 700px; 
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; 
     background: #111 !important;
-    margin: 0 auto; /* 置中 */
+    /* [修正 2] 移除 margin: 0 auto; 由 Flex 容器負責置中 */
+    margin: 0; 
     border: none; 
     border-radius: 0; 
     
-    /* 為了讓內容（#content）在 #container 內置中 */
+    /* 確保容器內的內容置中 */
     align-items: center; 
 }
 
-/* [修改 3] 新增：右側固定注釋欄樣式 */
+/* 新增：右側固定注釋欄樣式 */
 #notes-sidebar {
     position: fixed;
     top: 0;
     right: 0;
     width: 300px; /* 注釋欄寬度 */
     height: 100vh;
-    background: #0d0d0d; /* 更深的背景色，與 #container 區分 */
+    background: #0d0d0d; 
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto; /* 獨立滾動！ */
-    border-left: 1px solid #333; /* 邊界線 */
+    border-left: 1px solid #333; 
     z-index: 100;
 }
 
@@ -223,9 +224,9 @@ body.single-song #container {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #ff5555; /* 使用強調色 */
+    color: #ff5555; 
     text-align: center;
-    position: sticky; /* 標題固定在側邊欄頂部 */
+    position: sticky; 
     top: 0;
     background: #0d0d0d;
     padding-bottom: 10px;
@@ -234,13 +235,9 @@ body.single-song #container {
 
 #notes-content {
     white-space: pre-wrap;
-    text-align: left; /* 注釋內容通常靠左閱讀體驗較好 */
+    text-align: left; 
     line-height: 1.8;
 }
-
-/* [修改 4] 移除原有的 .notes 內嵌注釋樣式 */
-/* body.single-song .notes { ... } */
-
 
 /* 單曲頁面內容區樣式微調 (保持置中) */
 
