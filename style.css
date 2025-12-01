@@ -174,24 +174,48 @@ header {
 }
 
 /* ======================================== */
-/*             單首歌頁面維持原樣           */
+/*             單首歌頁面（新版）           */
 /* ======================================== */
 
 body.single-song {
-    display: block;
     background: #111 !important;
+    margin: 0;
+    padding: 0;
 }
 
+/* 主要容器 → 左右分欄 */
 body.single-song #container {
-    width: 900px;
-    min-height: 100vh;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
+    width: 95%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    gap: 20px;
+    overflow: hidden; 
     background: #111 !important;
     margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* 左半邊：標題 + 歌詞（可滾動） */
+body.single-song .left-panel {
+    flex: 2.2;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* 右半邊：注釋（可獨立滾動） */
+body.single-song .notes-panel {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    background: #1a1a1a;
+    border-left: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* 封面 + 標題區 */
 body.single-song .header {
     display: flex;
     gap: 20px;
@@ -199,6 +223,7 @@ body.single-song .header {
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 body.single-song .header img {
@@ -209,7 +234,6 @@ body.single-song .header img {
 }
 
 body.single-song .lyrics {
-    margin-top: 40px;
     text-align: center;
 }
 
@@ -231,56 +255,28 @@ body.single-song .zh {
     margin-top: 5px;
 }
 
+/* 單曲頁面 notes → 移到右側後的樣式 */
 body.single-song .notes {
-    margin-top: 50px;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
     white-space: pre-wrap;
-    text-align: center;
+    font-size: 1rem;
+    text-align: left;
 }
 
+/* 通用字色 */
 body.single-song, body.single-song * {
     color: #fff !important;
 }
 
-/* 右上角固定按鈕 */
-#top-right {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 20;
-}
+/* 手機版：自動改為上下排列 */
+@media (max-width: 900px) {
+    body.single-song #container {
+        flex-direction: column;
+        height: auto;
+    }
 
-#about-btn img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-#about-btn img:hover {
-    transform: scale(1.1);
-}
-
-/* 返回首頁按鈕 */
-#back-home {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  z-index: 9999;
-  opacity: 0.9;
-  transition: opacity 0.2s;
-}
-
-#back-home:hover {
-  opacity: 1;
-}
-
-#back-home img {
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
+    body.single-song .left-panel,
+    body.single-song .notes-panel {
+        flex: none;
+        height: auto;
+    }
 }
