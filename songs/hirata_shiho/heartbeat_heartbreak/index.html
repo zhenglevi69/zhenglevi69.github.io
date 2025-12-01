@@ -9,11 +9,14 @@
 <body class="single-song">
   <div id="container">
     <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
-    
     <div id="content">Loading...</div>
-    
   </div>
   
+  <div id="notes-sidebar">
+    <div class="notes-header">個人注釋</div>
+    <div id="notes-content"></div>
+  </div>
+
   <script>
     async function loadData() {
       const response = await fetch("data.json");
@@ -22,8 +25,8 @@
       // 更新頁面標題
       document.title = `${data.title} - ${data.artist}`;
       
-      // 渲染主要內容 (Header + 歌詞 + 內嵌注釋)
-      const html = `
+      // 1. 渲染主要內容 (Header + 歌詞)
+      const mainHtml = `
         <div class="header">
           <img src="${data.cover}">
           <div>
@@ -40,10 +43,13 @@
             </div>
           `).join("")}
         </div>
-        <div class="notes">${data.notes || "無相關注釋。"}</div>
-      `;
-      // 將內容注入到 #content 中
-      document.getElementById("content").innerHTML = html;
+        `;
+      // 將主要內容注入到左側的 #content 中
+      document.getElementById("content").innerHTML = mainHtml;
+      
+      // 2. 渲染注釋內容
+      // 將注釋內容注入到右側的 #notes-content 中
+      document.getElementById("notes-content").innerHTML = data.notes || "無相關注釋。";
     }
     loadData();
   </script>
