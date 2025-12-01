@@ -1,39 +1,57 @@
-<!DOCTYPE html>   <html lang="zh-Hant">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Song Translation</title>  
-  <link rel="stylesheet" href="/style.css">  
-</head>  
-<body class="single-song">  <div id="container">  <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Song Translation</title>
+  <link rel="stylesheet" href="/style.css"> 
+</head>
+<body class="single-song">
+  <div id="container">
+    <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
+    <div id="content">Loading...</div>
+  </div>
+  
+  <div id="notes-sidebar">
+    <div class="notes-header">個人注釋</div>
+    <div id="notes-content"></div>
+  </div>
 
-  <div id="content">Loading...</div>  
-</div>  <script>  
-async function loadData() {  
-  const response = await fetch("data.json");  
-  const data = await response.json();  
-  document.title = `${data.title} - ${data.artist}`;  
-  const html = `  
-    <div class="header">  
-      <img src="${data.cover}">  
-      <div>  
-        <h1>${data.title}</h1>  
-        <h3>${data.artist}</h3>  
-        ${data.spotify ? `<iframe src="${data.spotify}" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>` : ""}  
-      </div>  
-    </div>  
-    <div class="lyrics">  
-      ${data.lyrics.map(line => `  
-        <div class="line">  
-          <div class="og">${line.og}</div>  
-          <div class="zh">${line.zh}</div>  
-        </div>  
-      `).join("")}  
-    </div>  
-    <div class="notes">${data.notes || ""}</div>  
-  `;  
-  document.getElementById("content").innerHTML = html;  
-}  
-loadData();  
-</script>  </body>  
+  <script>
+    async function loadData() {
+      const response = await fetch("data.json");
+      const data = await response.json();
+      
+      // 更新頁面標題
+      document.title = `${data.title} - ${data.artist}`;
+      
+      // 1. 渲染主要內容 (Header + 歌詞)
+      const mainHtml = `
+        <div class="header">
+          <img src="${data.cover}">
+          <div>
+            <h1>${data.title}</h1>
+            <h3>${data.artist}</h3>
+            ${data.spotify ? `<iframe src="${data.spotify}" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>` : ""}
+          </div>
+        </div>
+        <div class="lyrics">
+          ${data.lyrics.map(line => `
+            <div class="line">
+              <div class="og">${line.og}</div>
+              <div class="zh">${line.zh}</div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+      // 將主要內容注入到左側的 #content 中
+      document.getElementById("content").innerHTML = mainHtml;
+      
+      // 2. 渲染注釋內容
+      // 將注釋內容注入到右側的 #notes-content 中
+      document.getElementById("notes-content").innerHTML = data.notes || "無相關注釋。";
+    }
+    loadData();
+  </script>
+</body>
 </html>
