@@ -1,67 +1,39 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Song Translation</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
+<!DOCTYPE html>   <html lang="zh-Hant">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Song Translation</title>  
+  <link rel="stylesheet" href="/style.css">  
+</head>  
+<body class="single-song">  <div id="container">  <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
 
-<body class="single-song">
-
-<div id="container">
-
-  <!-- 返回首頁 -->
-  <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
-
-  <!-- 左側內容（封面 + 歌詞） -->
-  <div class="left-panel">
-    <div id="content">Loading...</div>
-  </div>
-
-  <!-- 右側注釋 -->
-  <div class="notes-panel" id="notes-panel">
-    載入中...
-  </div>
-
-</div>
-
-<script>
-async function loadData() {
-  const response = await fetch("data.json");
-  const data = await response.json();
-  document.title = `${data.title} - ${data.artist}`;
-
-  // 左側主要內容（封面、標題、歌詞）
-  const html = `
-    <div class="header">
-      <img src="${data.cover}">
-      <div>
-        <h1>${data.title}</h1>
-        <h3>${data.artist}</h3>
-        ${data.spotify ? `<iframe src="${data.spotify}" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>` : ""}
-      </div>
-    </div>
-
-    <div class="lyrics">
-      ${data.lyrics.map(line => `
-        <div class="line">
-          <div class="og">${line.og}</div>
-          <div class="zh">${line.zh}</div>
-        </div>
-      `).join("")}
-    </div>
-  `;
-
-  document.getElementById("content").innerHTML = html;
-
-  // 右側注釋
-  document.getElementById("notes-panel").innerHTML =
-    data.notes ? data.notes : "（無注釋）";
-}
-
-loadData();
-</script>
-
-</body>
+  <div id="content">Loading...</div>  
+</div>  <script>  
+async function loadData() {  
+  const response = await fetch("data.json");  
+  const data = await response.json();  
+  document.title = `${data.title} - ${data.artist}`;  
+  const html = `  
+    <div class="header">  
+      <img src="${data.cover}">  
+      <div>  
+        <h1>${data.title}</h1>  
+        <h3>${data.artist}</h3>  
+        ${data.spotify ? `<iframe src="${data.spotify}" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>` : ""}  
+      </div>  
+    </div>  
+    <div class="lyrics">  
+      ${data.lyrics.map(line => `  
+        <div class="line">  
+          <div class="og">${line.og}</div>  
+          <div class="zh">${line.zh}</div>  
+        </div>  
+      `).join("")}  
+    </div>  
+    <div class="notes">${data.notes || ""}</div>  
+  `;  
+  document.getElementById("content").innerHTML = html;  
+}  
+loadData();  
+</script>  </body>  
 </html>
