@@ -7,14 +7,22 @@
   <link rel="stylesheet" href="/style.css"> 
 </head>
 <body class="single-song">
-  <div id="container">
-    <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
-    <div id="content">Loading...</div>
-  </div>
-  
-  <div id="notes-sidebar">
-    <div class="notes-header">個人注釋</div>
-    <div id="notes-content"></div>
+
+  <!-- 新增外層 wrapper 作為 flex 容器 -->
+  <div id="page-wrapper">
+    
+    <!-- 左側主要內容 -->
+    <div id="container">
+      <a id="back-home" href="/"><img src="/images/back.svg" alt="返回首頁"></a>
+      <div id="content">Loading...</div>
+    </div>
+
+    <!-- 右側注釋欄 -->
+    <div id="notes-sidebar">
+      <div class="notes-header">個人注釋</div>
+      <div id="notes-content">載入中...</div>
+    </div>
+
   </div>
 
   <script>
@@ -25,7 +33,7 @@
       // 更新頁面標題
       document.title = `${data.title} - ${data.artist}`;
       
-      // 1. 渲染主要內容 (Header + 歌詞)
+      // 渲染主要內容 (Header + 歌詞)
       const mainHtml = `
         <div class="header">
           <img src="${data.cover}">
@@ -43,15 +51,15 @@
             </div>
           `).join("")}
         </div>
-        `;
-      // 將主要內容注入到左側的 #content 中
+      `;
       document.getElementById("content").innerHTML = mainHtml;
       
-      // 2. 渲染注釋內容
-      // 將注釋內容注入到右側的 #notes-content 中
+      // 渲染右側注釋
       document.getElementById("notes-content").innerHTML = data.notes || "無相關注釋。";
     }
+
     loadData();
   </script>
+
 </body>
 </html>
