@@ -1,4 +1,6 @@
+/* ======================================== */
 /* 全頁背景容器（hover 顯示、由 JS 控制滾動） */
+/* ======================================== */
 #bg-layer {
     position: fixed;
     top: 0;
@@ -16,7 +18,9 @@
     transform: translateX(0);
 }
 
-/* body 設置 (flex 置中整個 page-wrapper) */
+/* ======================================== */
+/* Body 設置 */
+/* ======================================== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -26,53 +30,181 @@ body {
     justify-content: center;
 }
 
-/* page wrapper: 左 container + 右 sidebar */
-#page-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px; /* 左右間距 */
-    width: 100%;
-    max-width: calc(700px + 300px + 20px); /* 左 container + 右 sidebar + 間距 */
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* 左側主要內容 container */
+/* ======================================== */
+/* 中央內容框（首頁 / 單曲頁） */
+/* ======================================== */
 #container {
-    width: 700px;
-    min-height: 100vh;
+    width: 1000px;
+    min-height: 1000px;
+    max-height: 1000px;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto; /* 可滾動 */
-    background: #111;
+    overflow-y: auto;
+    background: rgba(0,0,0,0.8);
+    z-index: 1;
+    border: 2px solid #333;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
-/* 返回首頁按鈕 */
-#back-home {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    z-index: 9999;
-    opacity: 0.9;
-    transition: opacity 0.2s;
+/* 搜尋欄 */
+header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-#back-home:hover {
-    opacity: 1;
+#search {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
 }
 
-#back-home img {
-    width: 32px;
-    height: 32px;
+/* ======================================== */
+/* 推薦翻譯卡片 */
+/* ======================================== */
+#latest {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    max-width: 600px;
+    background: #1c1c1c;
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
     cursor: pointer;
+    color: #fff;
+    justify-content: flex-start;
 }
 
-/* 單曲頁面 header 與歌詞 */
+#latest .label {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff5555;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+#latest img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#latest div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+#latest h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+#latest p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+}
+
+/* ======================================== */
+/* 所有翻譯卡片（新版） */
+/* ======================================== */
+#song-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.song-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 430px;
+    height: 180px;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.2s;
+}
+
+.song-card:hover {
+    transform: translateY(-4px);
+}
+
+.song-card img {
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-card div {
+    width: 55%;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+}
+
+.song-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* ======================================== */
+/* 單首歌頁面調整 */
+/* ======================================== */
+body.single-song {
+    display: flex; /* 保留 Flex 置中 */
+    justify-content: center;
+    background: #111 !important;
+    padding: 0;
+    min-height: 100vh;
+    margin-right: 320px; /* 預留右側注釋空間 */
+}
+
+body.single-song #container {
+    width: 700px;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background: #111 !important;
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    align-items: center;
+}
+
 body.single-song .header {
     display: flex;
     gap: 30px;
@@ -84,8 +216,8 @@ body.single-song .header {
 }
 
 body.single-song .header img {
-    width: 150px;
-    height: 150px;
+    width: 150px !important;
+    height: 150px !important;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -114,7 +246,13 @@ body.single-song .zh {
     font-weight: bold;
 }
 
-/* 右側固定注釋欄 */
+body.single-song, body.single-song * {
+    color: #fff !important;
+}
+
+/* ======================================== */
+/* 右側注釋欄 */
+/* ======================================== */
 #notes-sidebar {
     position: fixed;
     top: 0;
@@ -149,7 +287,9 @@ body.single-song .zh {
     line-height: 1.8;
 }
 
-/* 滾動條樣式 */
+/* ======================================== */
+/* 滾動條樣式調整 */
+/* ======================================== */
 #container::-webkit-scrollbar,
 #notes-sidebar::-webkit-scrollbar {
     width: 8px;
@@ -171,4 +311,46 @@ body.single-song .zh {
 #container::-webkit-scrollbar-thumb:hover,
 #notes-sidebar::-webkit-scrollbar-thumb:hover {
     background: #aaa;
+}
+
+/* ======================================== */
+/* 返回首頁 / 右上角按鈕 */
+/* ======================================== */
+#top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+}
+
+#about-btn img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#about-btn img:hover {
+    transform: scale(1.1);
+}
+
+#back-home {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 9999;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+#back-home:hover {
+    opacity: 1;
+}
+
+#back-home img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
