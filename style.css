@@ -16,7 +16,7 @@
     transform: translateX(0);
 }
 
-/* body 設置 (定義基礎 Flex 佈局) */
+/* body 設置 (flex 置中整個 page-wrapper) */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -26,326 +26,33 @@ body {
     justify-content: center;
 }
 
-/* 中央內容框 (主頁 - 供首頁使用) */
+/* page wrapper: 左 container + 右 sidebar */
+#page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* 左右間距 */
+    width: 100%;
+    max-width: calc(700px + 300px + 20px); /* 左 container + 右 sidebar + 間距 */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 左側主要內容 container */
 #container {
-    width: 1000px;
-    min-height: 1000px;
-    max-height: 1000px;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    background: rgba(0,0,0,0.8);
-    z-index: 1;
-    border: 2px solid #333;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-/* 搜尋欄置中 */
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#search {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-}
-
-/* 推薦翻譯卡片 */
-#latest {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    width: 80%;
-    max-width: 600px;
-    background: #1c1c1c;
-    padding: 20px;
-    border: 2px solid #fff;
-    border-radius: 12px;
-    margin-bottom: 30px;
-    position: sticky;
-    top: 20px;
-    z-index: 10;
-    cursor: pointer;
-    color: #fff;
-    justify-content: flex-start;
-}
-
-#latest .label {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ff5555;
-    color: #fff;
-    padding: 3px 10px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.85rem;
-}
-
-#latest img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-#latest div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
-}
-
-#latest h3 {
-    margin: 0;
-    font-size: 1.3rem;
-}
-
-#latest p {
-    margin: 5px 0 0 0;
-    font-size: 1rem;
-}
-
-/* ======================================== */
-/* 所有翻譯卡片（新版）        */
-/* ======================================== */
-
-#song-list {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 一排兩個 */
-    gap: 20px;
-    justify-items: center;
-    margin-top: 20px;
-}
-
-.song-card {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: 430px; /* 靠這個控制兩欄 */
-    height: 180px;
-    background: #1a1a1a;  /* 深灰底 */
-    border: 2px solid #333; /* 深灰邊框 */
-    border-radius: 12px;
-    padding: 0;
-    overflow: hidden;
-    text-decoration: none;
-    color: #fff;
-    transition: transform 0.2s;
-}
-
-.song-card:hover {
-    transform: translateY(-4px);
-}
-
-.song-card img {
-    width: 45%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.song-card div {
-    width: 55%;
-    padding: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.song-card h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.2rem;
-}
-
-.song-card p {
-    margin: 0;
-    font-size: 0.95rem;
-    color: #ccc;
-}
-
-/* ======================================== */
-/* 單首歌頁面調整 (START)        */
-/* ======================================== */
-
-body.single-song {
-    /* [修正 1] 移除 display: block; 繼承 body 的 display: flex; 和 justify-content: center; */
-    /* display: flex; 且 justify-content: center; */ 
-    background: #111 !important;
-    padding: 0;
-    min-height: 100vh;
-    /* 保留 margin-right 預留右側空間 (300px + 20px 間距) */
-    margin-right: 320px; 
-}
-
-body.single-song #container {
-    /* 保持縮小後的寬度 */
-    width: 700px; 
+    width: 700px;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
-    overflow-y: auto; 
-    background: #111 !important;
-    /* [修正 2] 移除 margin: 0 auto; 由 Flex 容器負責置中 */
-    margin: 0; 
-    border: none; 
-    border-radius: 0; 
-    
-    /* 確保容器內的內容置中 */
-    align-items: center; 
-}
-
-/* 新增：右側固定注釋欄樣式 */
-#notes-sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px; /* 注釋欄寬度 */
-    height: 100vh;
-    background: #0d0d0d; 
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto; /* 獨立滾動！ */
-    border-left: 1px solid #333; 
-    z-index: 100;
-}
-
-.notes-header {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #ff5555; 
-    text-align: center;
-    position: sticky; 
-    top: 0;
-    background: #0d0d0d;
-    padding-bottom: 10px;
-    z-index: 1;
-}
-
-#notes-content {
-    white-space: pre-wrap;
-    text-align: left; 
-    line-height: 1.8;
-}
-
-/* 單曲頁面內容區樣式微調 (保持置中) */
-
-body.single-song .header {
+    overflow-y: auto; /* 可滾動 */
+    background: #111;
+    border-radius: 12px;
     display: flex;
-    gap: 30px; 
+    flex-direction: column;
     align-items: center;
-    justify-content: center; /* 置中 */
-    flex-wrap: wrap;
-    text-align: center; 
-    margin-bottom: 40px;
 }
 
-body.single-song .header img {
-    width: 150px !important;
-    height: 150px !important;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-body.single-song .lyrics {
-    margin-top: 20px;
-    text-align: center; /* 歌詞置中 */
-}
-
-body.single-song .line {
-    display: block;
-    text-align: center; /* 歌詞行置中 */
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #333;
-}
-
-body.single-song .og {
-    font-size: 1.1rem;
-    color: #bbb;
-}
-
-body.single-song .zh {
-    font-size: 1.2rem;
-    margin-top: 5px;
-    font-weight: bold;
-}
-
-body.single-song, body.single-song * {
-    color: #fff !important;
-}
-
-/* ======================================== */
-/* 單首歌頁面調整 (END)          */
-/* ======================================== */
-
-
-/* ======================================== */
-/* 滾動條樣式調整 ( #container 和 #notes-sidebar 都需設置灰色) */
-/* ======================================== */
-
-/* 適用於 WebKit (Chrome, Safari, Edge) 瀏覽器 */
-
-/* 滾動條整體 */
-#container::-webkit-scrollbar,
-#notes-sidebar::-webkit-scrollbar {
-    width: 8px; /* 垂直滾動條寬度 */
-    height: 8px; /* 水平滾動條高度 */
-}
-
-/* 滾動條軌道 (背景) */
-#container::-webkit-scrollbar-track,
-#notes-sidebar::-webkit-scrollbar-track {
-    background: #222; /* 深灰色背景 */
-    border-radius: 10px;
-}
-
-/* 滾動條滑塊 (灰色) */
-#container::-webkit-scrollbar-thumb,
-#notes-sidebar::-webkit-scrollbar-thumb {
-    background: #888; /* 灰色滑塊 */
-    border-radius: 10px;
-}
-
-#container::-webkit-scrollbar-thumb:hover,
-#notes-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #aaa; /* 懸停時略亮 */
-}
-
-
-/* 右上角固定按鈕 (未動) */
-#top-right {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 20;
-}
-
-#about-btn img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-#about-btn img:hover {
-    transform: scale(1.1);
-}
-
-/* 返回首頁按鈕 (未動) */
+/* 返回首頁按鈕 */
 #back-home {
     position: absolute;
     left: 10px;
@@ -363,4 +70,105 @@ body.single-song, body.single-song * {
     width: 32px;
     height: 32px;
     cursor: pointer;
+}
+
+/* 單曲頁面 header 與歌詞 */
+body.single-song .header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+body.single-song .header img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+body.single-song .lyrics {
+    margin-top: 20px;
+    text-align: center;
+}
+
+body.single-song .line {
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+body.single-song .og {
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+body.single-song .zh {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* 右側固定注釋欄 */
+#notes-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #0d0d0d;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-left: 1px solid #333;
+    z-index: 100;
+}
+
+.notes-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ff5555;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background: #0d0d0d;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+
+#notes-content {
+    white-space: pre-wrap;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* 滾動條樣式 */
+#container::-webkit-scrollbar,
+#notes-sidebar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+#container::-webkit-scrollbar-track,
+#notes-sidebar::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 10px;
+}
+
+#container::-webkit-scrollbar-thumb,
+#notes-sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+#container::-webkit-scrollbar-thumb:hover,
+#notes-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
 }
