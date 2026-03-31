@@ -1,0 +1,6 @@
+/* 设置背景图片 */
+body {
+  background: url(/img/sunset.jpg);
+  background-attachment: fixed;
+  background-size: cover;  
+}
