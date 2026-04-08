@@ -1,8 +1,8 @@
 ---
-title: 換了新網站
+title: zaza
 date: 2026-03-23 22:45:44
 tags: [Fix]
-category: [Post]
+categories: [Post]
 cover: /images/dump/poker_night.jpg
 banner: /images/dump/poker_night.jpg
 sticky: true

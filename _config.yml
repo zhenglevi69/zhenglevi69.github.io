@@ -6,10 +6,7 @@
 title: Zhlyrics
 subtitle: 沒事翻譯一些英文歌，偶爾發點雜談
 description: 歌詞翻譯網站
-keywords:
-  - songs
-  - translations
-  - lyrics
+keywords: songs, translations, lyrics
 author: 鄭琮叡
 language: zh-TW
 timezone: Asia/Taipei
@@ -31,7 +28,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: []
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -107,3 +104,9 @@ deploy:
   type: git
   repo: https://github.com/zhenglevi69/zhenglevi69.github.io.git
   branch: master
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  

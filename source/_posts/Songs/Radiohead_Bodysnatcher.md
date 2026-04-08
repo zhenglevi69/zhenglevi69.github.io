@@ -1,8 +1,8 @@
 ---
-title: Radiohead-Bodysnatcher 
+title: Radiohead Bodysnatcher 
 date: 2026-03-25
 tags: [Radiohead, In Rainbows]
-category: [Songs]
+categories: [Songs]
 cover: /images/Radiohead/in_rainbows.jpg
 banner: /images/Radiohead/radiohead_wide.jpg
 ---

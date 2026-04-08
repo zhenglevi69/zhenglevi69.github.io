@@ -900,3 +900,4 @@ vendor:
     aplayer:
       src: webcache|aplayer@1.10.1/dist/APlayer.min.css
       integrity: sha384-tLMkTWh2pfXNWGFlUS0w1TFtRG5xZ9lPWFOooj+vDDLIL+xBGQU/voDBY5XE2lVh
+
