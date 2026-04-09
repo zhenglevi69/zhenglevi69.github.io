@@ -1,6 +1,6 @@
 ---
 title: zaza
-date: 2026-03-23 22:45:44
+date: 2026-03-23
 tags: [Fix]
 categories: [Post]
 cover: /images/dump/poker_night.jpg

@@ -8,16 +8,16 @@ theme_config_check: true
 menu:
   - name: home
     url: /
-    icon: # default use taichi icon, you can use a hexadecimal representation of fontawesome or icon_font, like 'f0c1'
+    icon: false
   - name: archives
     url: /archives
-    icon:
+    icon: false
   - name: about
     url: /about
-    icon:
+    icon: false
   - name: friend
     url: /friend
-    icon:
+    icon: false
 
 subtitle:
   typing:
@@ -52,11 +52,11 @@ banner_srcset:
     - src: "/images/banner.webp"
       media: "(min-width: 800px)"
 
-favicon: "/images/favicon.ico" # which means themes/reimu/source/images/favicon.ico
+favicon: "/images/favicon.png" # which means themes/reimu/source/images/favicon.ico
 # You can also write it in the form of the following url
 # favicon: "https://example.com"
 
-avatar: "avatar.webp" # which means source/_data/avatar/avatar.webp
+avatar: "old_avatar.jpg" # which means source/_data/avatar/avatar.webp
 
 # Control the display of the post cover
 # If not set, the banner image will be displayed by default
@@ -71,7 +71,7 @@ toc_options:
   min_depth: 1
   max_depth: 6
 
-# Open Graph
+# Open GraphsNever
 # see https://hexo.io/docs/helpers#open-graph
 open_graph:
   enable: true
@@ -709,16 +709,16 @@ material_theme:
 
 internal_theme:
   light:
-    --red-0: "#ff0000"
-    --red-1: "#ff5252"
-    --red-2: "#ff7c7c"
-    --red-3: "#ffafaf"
-    --red-4: "#ffd0d0"
-    --red-5: "#ffecec"
-    --red-5-5: "#fff3f3"
-    --red-6: "#fff7f7"
-    --color-red-6-shadow: "rgba(255, 78, 78, 0.6)"
-    --color-red-3-shadow: "rgba(255, 78, 78, 0.3)"
+    --red-0: "#5d39bf"
+    --red-1: "#7a57cf"
+    --red-2: "#9674da"
+    --red-3: "#b7a1e8"
+    --red-4: "#d5c8f2"
+    --red-5: "#ebe5f9"
+    --red-5-5: "#f3effd"
+    --red-6: "#f8f5fe"
+    --color-red-6-shadow: "rgba(93, 57, 191, 0.6)"
+    --color-red-3-shadow: "rgba(93, 57, 191, 0.3)"
 
     --highlight-nav: "#f5f5f5"
     --highlight-scrollbar: "#d6d6d6"
@@ -738,10 +738,10 @@ internal_theme:
     --highlight-addition: "#22863a"
     --highlight-addition-bg: "#f0fff4"
   dark:
-    --red-4: "rgba(255, 208, 208, 0.5)"
-    --red-5: "rgba(255,228,228,0.15)"
-    --red-5-5: "rgba(255,236,236,0.05)"
-    --red-6: "rgba(255, 243, 243, 0.2)"
+    --red-4: "rgba(213, 200, 242, 0.5)"
+    --red-5: "rgba(235, 229, 249, 0.15)"
+    --red-5-5: "rgba(243, 239, 253, 0.05)"
+    --red-6: "rgba(248, 245, 254, 0.2)"
 
     --highlight-nav: "#222830"
     --highlight-scrollbar: "#454d59"
