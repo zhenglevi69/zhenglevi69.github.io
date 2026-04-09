@@ -1,6 +1,4 @@
-links:
-  - name: Tzufu
-    url: tzufu.me 
-    desc: 隔壁校同學
-    image: /friend/tzufu.png
-
+    - name: Tzufu
+      image: https://avatars.githubusercontent.com/u/98402800?v=4
+      url: https://tzufu.me/
+      desc: pal

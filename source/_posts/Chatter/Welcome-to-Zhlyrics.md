@@ -2,7 +2,7 @@
 title: zaza
 date: 2026-03-23
 tags: [Fix]
-categories: [Post]
+categories: [Posts]
 cover: /images/dump/poker_night.jpg
 banner: /images/dump/poker_night.jpg
 sticky: true

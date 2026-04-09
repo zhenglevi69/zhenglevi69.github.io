@@ -1,10 +1,6 @@
 ---
-title: 朋友
-date: 2026-03-25
-tag: [s]
+title: 友鏈
+date: 2026-04-09
 layout: links
 ---
-
-## 同學
-
-{% /friend/_data.yml %}
+{% friendsLink friend/_data.yml %}
