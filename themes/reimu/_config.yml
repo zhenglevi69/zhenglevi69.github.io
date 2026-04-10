@@ -659,14 +659,18 @@ live2d_widgets:
 
 # Please turn on pjax to use this feature
 player:
-  disable_on_mobile: false
+  disable_on_mobile: true
   position: before_sidebar # before_sidebar / after_sidebar / after_widget
   # if you enable meting, you must enable aplayer first
   aplayer:
     # https://github.com/DIYgod/APlayer
-    enable: false
+    enable: true
     options:
-      audio: []
+      audio:
+        - name: Your Affection
+          artist: 平田志穗子
+          url: /images/your_affection.wav
+          cover: /images/dump/p4ostcover.jpg
       fixed: false
       autoplay: false
       loop: all
