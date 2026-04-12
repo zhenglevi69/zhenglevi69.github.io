@@ -152,7 +152,7 @@ social:
 widgets:
   # - category
   # - tag
-  # - tagcloud
+   - tagcloud
   # - archive
   # - recent_posts
 
@@ -161,7 +161,7 @@ archive_type: "monthly"
 show_count: false
 tag_limits:
 recent_posts_limits: 5
-tagcloud_limits:
+tagcloud_limits: 50
 
 # Archive behavior
 only_show_capsule_in_index: false # If you have hugo amounts of tags and categories, you can set this to true to only show the capsule in the index page for better performance

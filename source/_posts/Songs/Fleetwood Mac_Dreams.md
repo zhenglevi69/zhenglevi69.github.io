@@ -3,6 +3,8 @@ title: Fleetwood Mac-Dreams 歌詞翻譯＆解析
 date: 2026-04-10
 tags: [Fleetwood Mac, Rumours]
 categories: [Songs]
+cover: /images/rumours.webp
+banner: /images/fleetwood.webp
 ---
 
 ## 歌詞
