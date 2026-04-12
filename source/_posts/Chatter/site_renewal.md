@@ -3,8 +3,8 @@ title: 新網站
 date: 2026-03-23
 tags: [Fix]
 categories: [Posts]
-cover: /images/dump/poker_night.jpg
-banner: /images/dump/poker_night.jpg
+cover: /images/dump/poker_night.webp
+banner: /images/dump/poker_night.webp
 excerpt: 網站遷移到了新網址，也整個重置過了...
 sticky: true
 ---

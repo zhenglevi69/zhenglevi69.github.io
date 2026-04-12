@@ -37,7 +37,7 @@ subtitle:
     cursorChar: "|"             # character for cursor
     smartBackspace: false       # only backspace what doesn't match the previous string
 
-banner: "/images/sunset.jpg" # which means themes/reimu/source/images/banner.webp
+banner: "/images/sunset.webp" # which means themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
 # banner: "https://example.com"
 
@@ -669,8 +669,21 @@ player:
       audio:
         - name: Your Affection
           artist: 平田志穗子
-          url: /images/your_affection.wav
-          cover: /images/dump/p4ostcover.jpg
+          url: /images/music/your_affection.wav
+          cover: /images/music/p4ostcover.webp
+        - name: Days
+          artist: Flow
+          url: /images/music/days.mp3
+          cover: /images/music/days_cover.webp
+        - name: ねっこ
+          artist: King Gnu
+          url: /images/music/nekko.mp3
+          cover: /images/music/nekko_cover.webp
+        - name: YUKON (INTERLUDE)
+          artist: Joji
+          url: /images/music/yukon.mp3
+          cover: /images/music/smithreens_cover.webp
+        
       fixed: false
       autoplay: false
       loop: all

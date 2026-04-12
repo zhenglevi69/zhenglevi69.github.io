@@ -3,8 +3,8 @@ title: Radiohead-Bodysnatcher 歌詞翻譯＆解析
 date: 2026-03-25
 tags: [Radiohead, In Rainbows]
 categories: [Songs]
-cover: /images/Radiohead/in_rainbows.jpg
-banner: /images/Radiohead/radiohead_wide.jpg
+cover: /images/Radiohead/in_rainbows.webp
+banner: /images/Radiohead/radiohead_wide.webp
 excerpt: 收錄在Radiohead 2007的專輯 In Rainbows 中，專輯發行後在告示牌和英國專輯排行榜登上第一名...
 ---
 
@@ -86,12 +86,12 @@ Bodysnatchers，收錄在Radiohead 2007的專輯 In Rainbows 中，專輯發行�
 
 先來聊聊專輯創作背景吧，樂團在2005年時開始錄製專輯，但中間因為巡迴演唱會等因素一度暫停。
 2006 的夏天，在巡迴結束後，製作人把樂團丟進一棟叫 Tottenham House 的老屋子裡錄製專輯。
-![Tottenham House](/images/Bodysnatcher/house.jpg)
+![Tottenham House](/images/Bodysnatcher/house.webp)
 屋子的狀況很糟，天花板和地板都是孔洞，下雨時水都會滴進來，還有傳言說那裡鬧鬼。
 主唱 Thom 說製作人是想藉此刺激他們去創作 (但我看根本只是想惡搞他們)。
 
 Thom說這首歌是被1975的恐怖電影 The Stepford Wives 啟發。電影在講 Stepford 鎮的主婦們被跟她們長一模一樣，且行為舉止都符合「理想老婆」的機器人替代。
-![The Stepford Wives](/images/Bodysnatcher/movie.jpg)
+![The Stepford Wives](/images/Bodysnatcher/movie.webp)
 糟糕的錄音環境以及電影給 Thom 留下的深刻印象，讓他最後寫下了這首歌
 
 ## 歌詞解析&感想
@@ -102,7 +102,7 @@ Thom說這首歌是被1975的恐怖電影 The Stepford Wives 啟發。電影在�
 ### 歌詞分析
 
 "Your mouth moves only with someone's hand up your arse" 這句，代表你就像手偶一樣，操偶者怎麼動 你就怎麼動。
-![手偶](/images/Bodysnatcher/hand_puppet.jpg)
+![手偶](/images/Bodysnatcher/hand_puppet.webp)
 "They got a skin and they put me in"，被強迫披上不屬於你的皮
 skin 在這裡也有形象或面具的含意，人們的期待塑造了一個叫做「歌手」的面具。
 
