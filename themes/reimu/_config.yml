@@ -154,13 +154,13 @@ widgets:
   # - tag
    - tagcloud
   # - archive
-  # - recent_posts
+   - recent_posts
 
 # Widget behavior
 archive_type: "monthly"
 show_count: false
 tag_limits:
-recent_posts_limits: 5
+recent_posts_limits: 3
 tagcloud_limits: 50
 
 # Archive behavior
