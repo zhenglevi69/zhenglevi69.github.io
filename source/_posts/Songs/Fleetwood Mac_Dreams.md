@@ -5,7 +5,7 @@ tags: [Fleetwood Mac, Rumours]
 categories: [Songs]
 cover: /images/rumours.webp
 banner: /images/fleetwood.webp
-excerpt: 1977年發行的歌曲引響了整個世代
+excerpt: 1977年發行流行單曲，節奏簡單卻能撫慰人心。
 ---
 
 ## 歌詞
