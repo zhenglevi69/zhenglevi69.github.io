@@ -4,7 +4,7 @@ date: 2026-03-25
 tags: [Radiohead, In Rainbows]
 categories: [Songs]
 cover: /images/Radiohead/in_rainbows.webp
-banner: /images/Radiohead/radiohead_wide.webp
+banner: /images/Radiohead/radiohead.webp
 excerpt: 收錄在Radiohead 2007的專輯 In Rainbows 中，專輯發行後在告示牌和英國專輯排行榜登上第一名
 ---
 

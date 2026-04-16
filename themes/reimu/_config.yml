@@ -683,13 +683,17 @@ player:
           artist: Joji
           url: /images/music/yukon.mp3
           cover: /images/music/smithreens_cover.webp
+        - name: Sound and Vision
+          artist: David Bowie
+          url: /images/music/Sound and Vision.mp3
+          cover: /images/music/SandVcover.webp
         
       fixed: false
       autoplay: false
       loop: all
       order: list
       preload: auto
-      volume: 0.4
+      volume: 0.3
       mutex: true
       listFolded: true
       lrcType: 0
