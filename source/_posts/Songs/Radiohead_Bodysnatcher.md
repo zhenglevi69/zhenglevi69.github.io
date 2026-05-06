@@ -90,7 +90,8 @@ Bodysnatchers，收錄在Radiohead 2007的專輯 In Rainbows 中，專輯發行�
 屋子的狀況很糟，天花板和地板都是孔洞，下雨時水都會滴進來，還有傳言說那裡鬧鬼。
 主唱 Thom 說製作人是想藉此刺激他們去創作 (但我看根本只是想惡搞他們)。
 
-Thom說這首歌是被1975的恐怖電影 The Stepford Wives 啟發。電影在講 Stepford 鎮的主婦們被跟她們長一模一樣，且行為舉止都符合「理想老婆」的機器人替代。
+Thom說這首歌是被1975的恐怖電影 The Stepford Wives 啟發。電影在講 Stepford 鎮的主婦們被跟她們長一模一樣
+且行為舉止都符合「理想老婆」的機器人替代。
 ![The Stepford Wives](/images/Bodysnatcher/movie.webp)
 糟糕的錄音環境以及電影給 Thom 留下的深刻印象，讓他最後寫下了這首歌
 
@@ -101,20 +102,31 @@ Thom說這首歌是被1975的恐怖電影 The Stepford Wives 啟發。電影在�
 但這首歌除了在講鬼故事以外，我覺得還寫出了對於現代人（還有主唱他自己）必須用另一個形象和他人往來的掙扎。
 ### 歌詞分析
 
-"Your mouth moves only with someone's hand up your arse" 這句，代表你就像手偶一樣，操偶者怎麼動 你就怎麼動。
-![手偶](/images/Bodysnatcher/hand_puppet.webp)
-"They got a skin and they put me in"，被強迫披上不屬於你的皮
-skin 在這裡也有形象或面具的含意，人們的期待塑造了一個叫做「歌手」的面具。
+>"Your mouth moves only with someone's hand up your arse" 
 
-"On the lines wrapped 'round my face"，面具的纏線都已經清楚可見 但還是沒人在乎。
-最後 "I've seen it coming/They've seen it coming"，代表主唱早就預見這樣的未來了，其他人也是，。
+代表你就像手偶一樣，操偶者怎麼動 你就怎麼動。
+![手偶](/images/Bodysnatcher/hand_puppet.webp)
+
+>"They got a skin and they put me in"
+
+被強迫披上不屬於你的皮
+skin在這裡也有形象或面具的含意，人們的期待塑造了一個叫做「歌手」的面具。
+
+>"On the lines wrapped 'round my face"
+
+面具的纏線都已經清楚可見 但還是沒人在乎。
+
+>"I've seen it coming/They've seen it coming"
+
+代表主唱早就預見這樣的未來了，其他人也是。
 
 ### 我的感想
 
 一整段看下來 你就能看出 Thom 到底想透過歌詞表達什麼。
 現在的社會，很少人會以真實面貌和他人交往，大家都有屬於自己的Persona(人格面具)．
 但我不覺得這是壞事，透過塑造另一個形象，人們可以保護自己的內心．也因為有了各種謊言和面具，社會才能維持其樣貌．
-總之，這首歌真的非常值得你聆聽，除了風格獨特，歌詞訴說的故事也很有探討的價值．可以說是這張專輯裡面我數一數二喜歡的歌曲．
+總之，這首歌真的非常值得你聆聽，除了風格獨特
+歌詞訴說的故事也很有探討的價值．可以說是這張專輯裡面我數一數二喜歡的歌曲．
 
 ## 參考資料
 

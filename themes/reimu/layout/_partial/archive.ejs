@@ -39,7 +39,7 @@
 <%_ } else { _%>
 <div class="archives-outer-wrap" data-aos="<%= theme.animation.options.archive.whole %>">
   <%_ if (theme.only_show_capsule_in_index) { _%>
-    <%_ if (page.current === 1) { _%>
+    <%_ if (page.current === 1 && page.archive) { _%>
       <%- partial_lang('post/archives', null, { cache: !config.relative_link, lang: page.lang }) %>
     <%_ } _%>
   <%_ } else { _%>

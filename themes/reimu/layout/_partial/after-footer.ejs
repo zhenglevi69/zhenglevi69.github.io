@@ -325,7 +325,8 @@
     <script>
     var setupAPlayer = () => {
       if (!<%= theme.player.disable_on_mobile %> || !window.matchMedia('(max-width: 768px)').matches) {
-        if (window.matchMedia('(max-width: 959px)').matches) {
+        const isMobile = window.matchMedia('(max-width: 959px)').matches;
+        if (isMobile) {
           const aplayer = _$('#aplayer');
           if (aplayer) {
             const aside = aplayer.parentNode?.parentNode;
@@ -340,7 +341,7 @@
           theme: "var(--color-link)",
           container: document.getElementById('aplayer'),
           audio: <%- JSON.stringify(theme.player.aplayer.options.audio) %> || [],
-          fixed: window.matchMedia('(max-width: 959px)').matches ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false),
+          fixed: isMobile ? true : (<%= JSON.stringify(theme.player.aplayer.options.fixed) %> || false),
           autoplay: <%= JSON.stringify(theme.player.aplayer.options.autoplay) %> || false,
           loop: '<%= theme.player.aplayer.options.loop %>' || 'all',
           order: '<%= theme.player.aplayer.options.order %>' || 'list',

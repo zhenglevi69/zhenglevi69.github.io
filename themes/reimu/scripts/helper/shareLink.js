@@ -4,6 +4,8 @@ const shareMap = {
   facebook: (url) => `https://www.facebook.com/sharer/sharer.php?u=${url}`,
   twitter: (url, title, desc, source) =>
     `https://twitter.com/intent/tweet?url=${url}&text=${title}&via=${source}`,
+  bluesky: (url, title) =>
+    `https://bsky.app/intent/compose?text=${encodeURIComponent(`${decodeURIComponent(title)} ${decodeURIComponent(url)}`)}`,
   linkedin: (url, title, desc) =>
     `https://www.linkedin.com/shareArticle?url=${url}&title=${title}&summary=${desc}&mini=true&ro=true`,
   reddit: (url, title) =>
