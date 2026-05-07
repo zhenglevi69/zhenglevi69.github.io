@@ -78,7 +78,7 @@ They've seen it coming
 
 ## 簡介
 
-Bodysnatchers，收錄在Radiohead 2007的專輯 In Rainbows 中，專輯發行後在告示牌和英國專輯排行榜登上第一名．
+*Bodysnatchers*，收錄在Radiohead 2007的專輯*In Rainbows*中，專輯發行後在告示牌和英國專輯排行榜登上第一名．
 這首曲風偏向搖滾，和專輯中的其他曲目差異很大，相較於較冷靜的Nude和All I need，這首歌更激動、更有能量。
 如果說Paranoid Android是在用精神病人的視角看世界，那這首就是在訴說被惡魔附身的故事。
 

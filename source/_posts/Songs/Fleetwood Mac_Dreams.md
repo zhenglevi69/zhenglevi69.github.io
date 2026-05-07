@@ -102,7 +102,7 @@ Oh, you'll know
 
 *Dreams*是Fleetwood Mac在1977發行的單曲，之後收錄在專輯*Rumours*中。這張專輯推出後大爆紅，沒多久就上告示牌
 到2023為止已經累積了超過4000萬的銷售量
-風格是Soft rock，很多美國的媽媽都會在睡前唱這首歌小孩聽。
+風格是Soft rock，很多美國的媽媽都會在睡前唱這首歌小孩聽
 
 ## 背景
 
@@ -129,7 +129,7 @@ Oh, you'll know
 
 ### 歌詞分析
 
-歌詞第一句就已經在說明Steive和Lindsey的關係了。
+歌詞第一句就已經在說明Steive和Lindsey的關係了
 
 >"Now, here you go again. You say you want your freedom"
 
@@ -137,11 +137,11 @@ Oh, you'll know
 
 >"But listen carefully to the sound of your loneliness"
 
-Stevie要對方好好聽著心裡的寂寞的聲音。
+Stevie要對方好好聽著心裡的寂寞的聲音
 
 >"Like a heartbeat, (Heart) drives you mad (beat)"
 
-寂寞和心跳一樣不停打擊著你。
+寂寞和心跳一樣不停打擊著你
 
 >"What you had (Lonely) and what you lost (Ooh, ooh)"
 
@@ -149,7 +149,7 @@ What you had and what you lost指的就是Steive，Lindsey一旦離開她就不�
 
 >***"Thunder only happens when it's rainin', Players only love you when they're playing"***
 
-這是整首歌最出名的一段歌詞，Rain和Thunder不是真的在指下雨打雷，是前因後果。
+這是整首歌最出名的一段歌詞，Rain和Thunder不是真的在指下雨打雷，是前因後果
 Stevie警告Lindsey，壞事(Thunder)不會突然發生，其出現一定有原因、是其他事物的累積下的結果(Rain)
 
 Players指的就是玩咖，在一次採訪中，Stevie說明她所影射的是其他音樂人
@@ -160,7 +160,8 @@ Players指的就是玩咖，在一次採訪中，Stevie說明她所影射的是�
 vision我在這裡會偏好推測是Stevie和Lindsey繼續在一起的未來
 不和Lindsey說是因為她知道一定會得到反彈
 
-補充:因為Stevie表演時都穿著黑色洋裝，加上她的聲音給人的感覺，得到了一個"White Witch"白女巫的外號
+補充:說到水晶球就會想到占卜和女巫
+因為Stevie表演時都穿著黑色洋裝，加上她的聲音給人的感覺，得到了一個"White Witch"白女巫的外號
 
 >And have you any dreams you'd like to sell?
 
