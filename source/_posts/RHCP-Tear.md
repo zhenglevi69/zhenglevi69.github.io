@@ -52,7 +52,7 @@ Can you feel the voltage
 你能感覺到電流嗎
 This is my time
 這是我的時光
-## Pre-Chorus
+### Pre-Chorus
 California skies got room to spare
 加州的天空遼闊得還有餘裕
 This is my time
@@ -102,7 +102,7 @@ Oh 永遠不會知道
 
 ## 簡介
 
-Tear，收錄在樂團Red Hot Chili Peppers 2002的專輯By the Way中
+Tear，收錄在樂團Red Hot Chili Peppers 2002的專輯*By the Way*中
 RHCP歷史悠久，1982就開始在加州表演，以Funk+Rock的風格聞名
 他們的作品一直都很受大眾歡迎，吉他手John Frusciante加入後寫出了不少好專輯
 尤其是1999的專輯*Californication*讓知名度又上一層樓，在當年他們的歌都被電台播到爛了
@@ -115,15 +115,17 @@ RHCP歷史悠久，1982就開始在加州表演，以Funk+Rock的風格聞名
 這張專輯絕大部分的編曲都是吉他手John操刀的，連bass的部分也是
 這對bass手Flea來說可是天大的打擊啊! 他是很一個有主見的藝術家
 在團裡面只剩下彈奏這個工作把他搞到快肖
-"John went to this whole level of artistry. But he made me feel like I had nothing to offer, like I knew shit."
-他不排斥John編曲這件事情，但這讓他感覺自己沒有對樂團貢獻
-
 沒事做也就算了，Flea最喜歡的funk元素在這張專輯裡面也少很多，很多曲子都摻了藍調風格
 你起碼也讓我彈我喜歡的吧!!
 
-By the Way發行後的銷量證明了John真的是音樂鬼才，雖然Flea和Chad的編曲貢獻不多，但專輯還是大流行
-在之後的演唱會後他甚至想要退出，如果沒有主唱Anthony的勸說，Flea搞不好就真的走了
+"John went to this whole level of artistry. But he made me feel like I had nothing to offer, like I knew shit."
+他不排斥John編曲這件事情，但這讓他感覺自己沒有對樂團貢獻
+在之後的演唱會Flea甚至想要退出，如果沒有主唱Anthony的勸說，搞不好就真的走了
 之後在做*Stadium Arcadium*就沒有這種狀況，大家相處的都很好，有充足的製作時間和合理的分工
+
+![rhcp](/images/rhcp/btw_tour.webp)
+By the Way發行後的銷量證明了John真的是音樂鬼才，雖然Flea和Chad的編曲貢獻不多，但專輯還是大流行
+
 
 值得一提的是Flea應該有幫忙編這首歌的曲，中間的小號solo是他吹的
 除了在RHCP彈奏bass以外他偶爾也會去別的地方吹小號
@@ -148,7 +150,7 @@ and I will take breath to be sure of this"
 就算太陽不會永遠存在，我還是愛著它
 而我會好好享受每次升起和落下
 
-翻到這裡我突然想到RHCP以前的單曲Californication也有提到太陽
+翻到這裡我突然想到RHCP以前的單曲*Californication*也有提到太陽
 "The sun may rise in the East, at least it settled in a final location"
 說不定有什麼連結
 
@@ -156,15 +158,29 @@ and I will take breath to be sure of this"
 
 在你放下(surrender)之後 所有的罪過和贈恨都不重要了
 
-這張專輯的另一首歌I Could Die for You有提到
+這張專輯的另一首歌*I Could Die for You*有提到
 "And this is what I give to you because I get it free"
 所以我會偏好把這裡的"I gave what I came to give"解釋成歸還自己得到的愛
+但我覺得直譯會比較好懂 所以不改
 
+>"Devil may cry, devil may care"
 
+"Devil may care, but I don't"是一個英文用語，通常用來表示自己毫不在乎的態度
+前面那一句單純把care換成cry 雙重不在乎
 
 ### 我的感想
 
+這首歌真的超難翻，我以前在聽RHCP的歌都能輕鬆理解
+但要我用中文寫出來就像是叫賽馬騎單車一樣 超難啊啊
+以後文筆變好應該還會回來重翻一次
+
+難翻也是有理由的，詞真的寫的很好，我聽完之後心情會變得很輕鬆
+你可以批評Anthony的唱功，但他寫詞的能力絕對是一流的
+
+這首歌吉他的聲音很低調，讓其他樂器 像鋼琴和小號有空間發揮
+我自己覺得這是整張專輯裡最棒的一首歌
+
 ## 參考資料
-https://ultimateclassicrock.com/red-hot-chili-peppers-by-the-way/
-https://en.wikipedia.org/wiki/By_the_Way#cite_note-ReferenceA-17
-https://www.reddit.com/r/RedHotChiliPeppers/comments/u33rah/thoughts_on_the_tensions_during_by_the_way/
+By the Way的製作: https://ultimateclassicrock.com/red-hot-chili-peppers-by-the-way/
+Flea的想法: https://en.wikipedia.org/wiki/By_the_Way#cite_note-ReferenceA-17
+關於樂團專輯過程的討論: [討論串](https://www.reddit.com/r/RedHotChiliPeppers/comments/u33rah/thoughts_on_the_tensions_during_by_the_way/)
