@@ -37,7 +37,7 @@ subtitle:
     cursorChar: "|"             # character for cursor
     smartBackspace: false       # only backspace what doesn't match the previous string
 
-banner: "/images/sunset.webp" # which means themes/reimu/source/images/banner.webp
+banner: "/images/shinobg.webp" # which means themes/reimu/source/images/banner.webp
 # You can also write it in the form of the following url
 # banner: "https://example.com"
 

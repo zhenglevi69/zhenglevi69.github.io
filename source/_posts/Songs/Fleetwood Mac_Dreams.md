@@ -100,22 +100,24 @@ Oh, you'll know
 
 ## 簡介
 
-*Dreams*是Fleetwood Mac在1977發行的單曲，之後收錄在專輯*Rumours*中。這張專輯推出後大爆紅，沒多久就上告示牌
-到2023為止已經累積了超過4000萬的銷售量
+*Dreams*是Fleetwood Mac在1977發行的單曲，之後收錄在專輯*Rumours*中
+這張專輯推出後大爆紅，沒多久就上告示牌的榜首
+到2023為止已經累積了超過4000萬張的銷售量
 風格是Soft rock，很多美國的媽媽都會在睡前唱這首歌小孩聽
 
 ## 背景
 
-這首歌是由Fleetwood Mac裡的Stevie Nicks寫的，這團成員換過非常多次，
-1977年的時候成員有Mick Fleetwood, Christine McVie, John McVie, Stevie Nick和Lindsey Buckingham。這一組人是最經典的組合
-五個人裡面有兩對情侶，關係非常複雜。之後還換過很多成員，如果要講詳細歷史的話歷史篇幅會很長，我今天先跳過。
-以下是他們的成員年表，一直在的只有Mick Fleetwood和John McVie而已
+這首歌是由Fleetwood Mac裡的主唱Stevie Nicks寫的，作曲和編曲則是交給吉他手/主唱Lindsey Buckingham
+1977年的時候成員有Mick Fleetwood, Christine McVie, John McVie, Stevie Nick和Lindsey Buckingham
+五個人裡面有兩對情侶，關係非常複雜。上面的這一組人是最經典的組合，之後還換過很多成員，如果要講詳細歷史的話歷史篇幅會很長，我今天先跳過。
+以下是他們的成員年表，常駐團員只有Mick Fleetwood和John McVie而已(團名也是拿他們的姓氏取的)
 ![Band Members](/images/Dreams/members.webp)
 1976年，樂團當天錄音沒有要Stevie幫忙，她自己跑到隔壁錄音室，自己在床上玩鍵盤。
 玩一玩她就開始寫歌
 整首歌的主題都圍繞著愛情，Stevie和Lindsey在1972-1976年間是情人，但為了樂團最後分手。
 
-以兩人的關係為主題，Stevie一時興起寫下了Dreams，全程只花她十分鐘。她覺得自己好像寫出了還不錯的東西，所以她跑去找其他成員，給他們聽旋律和歌詞。
+以兩人的關係為主題，Stevie一時興起寫下了Dreams，全程只花她十分鐘
+她覺得自己好像寫出了還不錯的東西，所以她跑去找其他成員，給他們聽旋律和歌詞
 
 錄音室的氣氛緊張，當時樂團裡面的感情糾紛很多，Stevie的行為簡直是火上加油，當下大家都不確定該不該錄這首歌，但在Lindsey的編排下歌曲完美成型。
 
@@ -158,16 +160,16 @@ Players指的就是玩咖，在一次採訪中，Stevie說明她所影射的是�
 >"I see the crystal visions. I keep my visions to myself"
 
 vision我在這裡會偏好推測是Stevie和Lindsey繼續在一起的未來
-不和Lindsey說是因為她知道一定會得到反彈
+不向Lindsey說是因為她知道一定會得到反彈
 
 補充:說到水晶球就會想到占卜和女巫
 因為Stevie表演時都穿著黑色洋裝，加上她的聲音給人的感覺，得到了一個"White Witch"白女巫的外號
 
 >And have you any dreams you'd like to sell?
 
-Selling dreams意指向他人變賣/鼓勵一些不真實的事物或目標，基本上就是在說謊
+Selling dreams意指向他人變賣/鼓勵一些不真實的事物或目標，基本上就是在畫大餅
 Stevie在諷刺Lindsey 比起他們兩人長久的感情，Lindsey選擇了去追求虛假的成功
-這句攻擊力還挺強的，畢竟沒人會希望自己的行為被稱作是在selling dreams
+這句攻擊力還挺強的，畢竟對藝術家來說，被指控在selling dreams就像是自己的志向被貶低了一樣
 
 ### 我的感想
 

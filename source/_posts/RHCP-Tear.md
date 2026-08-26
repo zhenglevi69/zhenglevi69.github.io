@@ -13,7 +13,7 @@ excerpt: RHCP討論度不高的一首慢歌
 This is my time, this is my tear
 這是我的時光，這是我的眼淚
 I can see clearly now that this is not a place, for playing solitaire
-我終於能明白這裡不是一人玩接龍的地方
+我終於明白了這裡不是讓我玩接龍的地方
 Tell me where you want me
 告訴我，你想要我去何處
 This is my time, this is my tear
@@ -22,7 +22,7 @@ This is my time, this is my tear
 Comin' on strong Baudelaire
 太強勢的Baudelaire
 Seems to me like all the world gets high, when you take a dare
-對我來說，在你放手一試時，全世界都沉迷於你
+在你放手一搏時，全世界都沉迷於你
 Let it rise before you
 讓它在你面前升起吧
 This is my crime
@@ -37,7 +37,7 @@ Breath to be sure of this
 In the end and then
 到了最後
 All will be forgiven when surrender rises high and I gave what I came to give
-當在白旗被高舉之時、我也給了我想獻出之物後，所有的罪過都會被原諒
+在白旗被高舉之時、我付出了我所能給予時，所有的罪過都會被原諒
 ### Post-Chorus
 Say it now because you never know
 現在不說你就永遠不會知道
@@ -67,7 +67,7 @@ Breath to be sure of this
 In the end and then
 到了最後
 All will be forgiven when surrender rises high and I gave what I came to give
-當在白旗被高舉之時、我也給了我想獻出之物後，所有的罪過都會被原諒
+在白旗被高舉之時、我付出了我所能給予時，所有的罪過都會被原諒
 ### Post-Chorus
 Say it now because you never know
 現在不說你就永遠不會知道
@@ -78,7 +78,7 @@ Oh 永遠不會知道
 Take it outside, take it out there
 把它帶去外面吧
 Seems to me like all the world gets high, when you take a dare
-對我來說，在你放手一試時，全世界都沉迷於你
+在你放手一試時，全世界都沉迷於你
 In the final moment
 在最後一刻
 This is my time
@@ -93,7 +93,7 @@ Breath to be sure of this
 In the end and then
 到了最後
 All will be forgiven when surrender rises high and I gave what I came to give
-當在白旗被高舉之時、我也給了我想獻出之物後，所有的罪過都會被原諒
+在白旗被高舉之時、我付出了我所能給予時，所有的罪過都會被原諒
 ### Post-Chorus
 Say it now because you never know
 現在不說你就永遠不會知道
@@ -111,21 +111,21 @@ RHCP歷史悠久，1982就開始在加州表演，以Funk+Rock的風格聞名
 
 這首歌我找不到什麼背景故事，只能拿整張專輯的製作來講，很多資料都是第二手消息，請見諒 :p
 
-在Californication後 RHCP緊接著開始製作By the Way
-這張專輯絕大部分的編曲都是吉他手John操刀的，連bass的部分也是
+在Californication的大成功後 RHCP緊接著開始製作By the Way
+這張專輯絕大部分的歌都是吉他手John操刀的，幾乎所有樂器編曲都交給她
 這對bass手Flea來說可是天大的打擊啊! 他是很一個有主見的藝術家
 在團裡面只剩下彈奏這個工作把他搞到快肖
 沒事做也就算了，Flea最喜歡的funk元素在這張專輯裡面也少很多，很多曲子都摻了藍調風格
 你起碼也讓我彈我喜歡的吧!!
 
+在一次採訪中，Flea說出了他在製作*By the Way*時的感受
 "John went to this whole level of artistry. But he made me feel like I had nothing to offer, like I knew shit."
 他不排斥John編曲這件事情，但這讓他感覺自己沒有對樂團貢獻
-在之後的演唱會Flea甚至想要退出，如果沒有主唱Anthony的勸說，搞不好就真的走了
+在之後的演唱會他甚至想要退出，如果沒有主唱Anthony的勸說，搞不好就真的走了
 之後在做*Stadium Arcadium*就沒有這種狀況，大家相處的都很好，有充足的製作時間和合理的分工
 
 ![rhcp](/images/rhcp/btw_tour.webp)
 By the Way發行後的銷量證明了John真的是音樂鬼才，雖然Flea和Chad的編曲貢獻不多，但專輯還是大流行
-
 
 值得一提的是Flea應該有幫忙編這首歌的曲，中間的小號solo是他吹的
 除了在RHCP彈奏bass以外他偶爾也會去別的地方吹小號
