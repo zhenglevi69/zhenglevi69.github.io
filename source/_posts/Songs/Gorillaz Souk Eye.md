@@ -51,6 +51,20 @@ That's why I'm calling you back on my way through
 
 ## 簡介
 
+*Souk Eye*，收錄在世界上最知名的虛擬樂團Gorillaz第六張錄音室專輯*The Now Now*裡
+「虛擬樂團」是指什麼呢?是指成員不是真人，而是虛擬角色或動畫人物的樂團
+但和初音未來那種虛擬歌手又不同，虛擬樂團裡的角色背後一般都有真人扮演，歌也是真人在唱
+這些角色只是真人音樂家們在這個樂團的一個表現方式
+![Gorillaz members](/images/gorillaz/gz.webp)
+虛擬樂團的概念在千禧年後被Gorillaz發揚光大
+說到Gorillaz大家都會想到MV裡面出現的四個動畫人物和其獨特的曲風
+他們在2005發行的專輯*Demon Days*(台譯*惡靈古堡* )大紅特紅，讓許多歐美以外的人得知了他們的存在
+
+這個樂團是由Blur主唱Damon Albarn和漫畫家Jamie Hewlett組成的
+其中有四個虛擬角色:主唱2D(Damon)、團長兼貝斯手Murdoc、吉他手Noodle、鼓手Russel
+每個角色都有鮮明的人格和特色，並且角色都有各自的背景故事
+樂團歷史長到我一篇文可能都放不下，所以我這邊先省略
+
 
 ## 背景
 
