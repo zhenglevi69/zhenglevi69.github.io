@@ -11,5 +11,6 @@ date: 2026-03-25
 ## 聯絡我
 如果網站出問題或是有其他事情找我 請利用以下方式:
 email(自用): zhenglevi69@gmail.com
+email(校用): 415110189@cloud.fju.edu.tw
 Instagram: [@rebel_dogg_](https://www.instagram.com/rebel_dogg_/)
 Discord ID: [@zhenglevi]()
