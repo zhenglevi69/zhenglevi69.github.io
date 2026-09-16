@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhlyrics.me/about/index.html</loc>
+    
+    <lastmod>2026-09-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/2026/08/28/Songs/Gorillaz%20Souk%20Eye/</loc>
+    
+    <lastmod>2026-09-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/2026/04/23/Chatter/site_renewal/</loc>
+    
+    <lastmod>2026-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/friend/index.html</loc>
+    
+    <lastmod>2026-08-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhlyrics.me/2026/04/10/Songs/Fleetwood%20Mac_Dreams/</loc>
     
     <lastmod>2026-08-26</lastmod>
@@ -11,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://zhlyrics.me/2026/02/02/RHCP-Tear/</loc>
+    <loc>https://zhlyrics.me/2026/02/02/Songs/RHCP-Tear/</loc>
     
     <lastmod>2026-08-26</lastmod>
     
@@ -28,94 +64,81 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://zhlyrics.me/2026/04/23/Chatter/site_renewal/</loc>
-    
-    <lastmod>2026-08-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/about/index.html</loc>
-    
-    <lastmod>2026-08-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/friend/index.html</loc>
-    
-    <lastmod>2026-08-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://zhlyrics.me/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://zhlyrics.me/tags/Red-Hot-Chili-Peppers/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/tags/By-the-Way/</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/tags/RHCP/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://zhlyrics.me/tags/Fix/</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhlyrics.me/tags/Fleetwood-Mac/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhlyrics.me/tags/Rumours/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/Red-Hot-Chili-Peppers/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/By-the-Way/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/RHCP/</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhlyrics.me/tags/Radiohead/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhlyrics.me/tags/In-Rainbows/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhlyrics.me/tags/Fix/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://zhlyrics.me/tags/Gorillaz/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/The-Now-Now/</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -123,15 +146,15 @@
 
   
   <url>
-    <loc>https://zhlyrics.me/categories/Songs/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://zhlyrics.me/categories/Posts/</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhlyrics.me/categories/Posts/</loc>
-    <lastmod>2026-08-26</lastmod>
+    <loc>https://zhlyrics.me/categories/Songs/</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
