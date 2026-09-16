@@ -4,7 +4,25 @@
   <url>
     <loc>https://zhlyrics.me/about/index.html</loc>
     
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/2026/02/02/Songs/RHCP-Tear/</loc>
+    
+    <lastmod>2026-09-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/2026/04/10/Songs/Fleetwood%20Mac_Dreams/</loc>
+    
+    <lastmod>2026-09-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -29,24 +47,6 @@
   </url>
   
   <url>
-    <loc>https://zhlyrics.me/2026/04/10/Songs/Fleetwood%20Mac_Dreams/</loc>
-    
-    <lastmod>2026-08-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/2026/02/02/Songs/RHCP-Tear/</loc>
-    
-    <lastmod>2026-08-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhlyrics.me/2026/03/25/Songs/Radiohead_Bodysnatcher/</loc>
     
     <lastmod>2026-08-26</lastmod>
@@ -65,6 +65,20 @@
 
   
   <url>
+    <loc>https://zhlyrics.me/tags/Fleetwood-Mac/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/Rumours/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhlyrics.me/tags/Gorillaz/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -73,6 +87,20 @@
   
   <url>
     <loc>https://zhlyrics.me/tags/The-Now-Now/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/Radiohead/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhlyrics.me/tags/In-Rainbows/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -101,34 +129,6 @@
   
   <url>
     <loc>https://zhlyrics.me/tags/RHCP/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/tags/Fleetwood-Mac/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/tags/Rumours/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/tags/Radiohead/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhlyrics.me/tags/In-Rainbows/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
