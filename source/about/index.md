@@ -14,3 +14,6 @@ email(自用): zhenglevi69@gmail.com
 email(校用): 415110189@cloud.fju.edu.tw
 Instagram: [@rebel_dogg_](https://www.instagram.com/rebel_dogg_/)
 Discord ID: [@zhenglevi]()
+### 其他
+背景圖的畫師: [@shino.32x](https://www.threads.com/@shino.32x)
+Spotify播放清單: [zaz](https://open.spotify.com/playlist/7a9NORcTLpJnV7PEy6A0uM)

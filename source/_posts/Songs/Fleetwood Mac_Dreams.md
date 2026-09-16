@@ -163,7 +163,7 @@ vision我在這裡會偏好推測是Stevie和Lindsey繼續在一起的未來
 不向Lindsey說是因為她知道一定會得到反彈
 
 補充:說到水晶球就會想到占卜和女巫
-因為Stevie表演時都穿著黑色洋裝，加上她的聲音給人的感覺，得到了一個"White Witch"白女巫的外號
+因為Stevie表演時都穿著洋裝，加上她的聲音給人的感覺，得到了一個"White Witch"白女巫的外號
 
 >And have you any dreams you'd like to sell?
 

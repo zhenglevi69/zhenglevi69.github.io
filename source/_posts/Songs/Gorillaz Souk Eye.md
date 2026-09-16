@@ -6,6 +6,7 @@ categories: [Songs]
 cover: /images/gorillaz/the now now.webp
 banner: /images/gorillaz/the now now japan.webp
 excerpt: Gorillaz熱門專輯"The Now Now"的結尾曲
+hidden: true
 ---
 
 ## 歌詞
